@@ -1,0 +1,10 @@
+file_format: "1"
+id: elle
+name: _elle
+type: shield
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - elle_left
+  - elle_right

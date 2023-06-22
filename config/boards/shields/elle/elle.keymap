@@ -120,7 +120,7 @@
         nav {
             bindings = <
                 &kp ESC     &sk LALT      &sk LSHFT     &sk LCTRL     &sk LGUI       &kp PG_UP     &kp HOME   &kp UP     &kp END    &kp PG_DN
-                &kp TAB     &tog 4        &kp CAPS      &caps_word    &none          &kp K_APP     &kp LEFT   &kp DOWN   &kp RIGHT  &trans
+                &tog 4      &kp TAB       &kp CAPS      &caps_word    &kp ENTER      &kp K_APP     &kp LEFT   &kp DOWN   &kp RIGHT  &trans
                 &switchapp  &unredo       &copycut      &kp LC(V)     &to 0          &mtg 3 3      &kp INS    &kp SPACE  ARCHIVE    &trans
             >;
         };
@@ -144,7 +144,7 @@
         nav_per {
             bindings = <
                 &kp ESC     &kt LALT      &kt LSHFT     &kt LCTRL     &kt LGUI       &kp PG_UP     &kp HOME   &kp UP     &kp END    &kp PG_DN
-                &kp TAB     &rls_mods     &kp CAPS      &caps_word    &none          &kp K_APP     &kp LEFT   &kp DOWN   &kp RIGHT  &trans
+                &kp TAB     &rls_mods     &kp CAPS      &caps_word    &kp ENTER      &kp K_APP     &kp LEFT   &kp DOWN   &kp RIGHT  &trans
                 &switchapp  &unredo       &copycut      &kp LC(V)     &rls_mods      &rls_mods     &kp INS    &kp SPACE  ARCHIVE    &trans
             >;
         };

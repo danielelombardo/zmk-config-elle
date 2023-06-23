@@ -14,6 +14,10 @@
     ignore-modifiers;
 };
 
+&sl {
+    release-after-ms = <2000>;
+};
+
 / { 
     behaviors {
         mtg: mom_tog_layers {
@@ -106,9 +110,6 @@
  
     keymap {
         compatible = "zmk,keymap";
-        // 0  1  2  3  4    5  6  7  8  9  
-        // 10 11 12 13 14   15 16 17 18 19 
-        // 20 21 22 23 24   25 26 27 28 29
         abc {
             bindings = <
                 &kp Q  &kp W  &kp E  &kp R  &kp T           &kp Y         &kp U  &kp I  &kp O  &kp P 
@@ -135,9 +136,9 @@
 
         num {
             bindings = <
-                &kp N4      &kp N3        &kp N2        &kp N1        &sk LALT       &kp F1        &kp F2     &kp F3     &kp F4     &kp F5 
-                &kp N8      &kp N7        &kp N6        &kp N5        &sk LGUI       &kp F6        &kp F7     &kp F8     &kp F9     &bkspdel   
-                &kp N0      &kp N9        &sk LSHFT     &sk LCTRL     &to 0          &to 0         &kp F10    &kp F11    &kp F12    &kp ENTER 
+                &kp N4      &kp N3        &kp N2        &kp N1        &none          &kp DOT       &kp N5     &kp N6     &kp N7     &kp N8
+                &kp N0      &sk LALT      &sk LSHFT     &sk LCTRL     &sk LGUI       &kp COMMA     &kp LEFT   &kp RIGHT  &bkspdel   &kp N9 
+                &sl 5       &none         &none         &none         &to 0          &to 0         &none      &none      &none      &kp ENTER 
             >;
         };
 
@@ -148,6 +149,14 @@
                 &switchapp  &unredo       &copycut      &kp LC(V)     &rls_mods      &rls_mods     &kp INS    &kp SPACE  ARCHIVE    &trans
             >;
         };
-    
+
+        fun {
+            bindings = <
+                &kp F4      &kp F3        &kp F2        &kp F1        &none          &none         &kp F5     &kp F6     &kp F7     &kp F8
+                &kp F10     &kp F11       &kp F12       &none         &none          &none         &none      &none      &bkspdel   &kp F9 
+                &none       &none         &none         &none         &none          &none         &none      &none      &none      &kp ENTER 
+            >;
+        };
+
     };
 };

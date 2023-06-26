@@ -3,137 +3,75 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define ARCHIVE &kp LC(LS(N1))
+#define LAY(l) &mtg  l l
 
-&caps_word {
-    continue-list = <MINUS UNDERSCORE BKSP DEL LEFT RIGHT DOT COMMA SEMI SLASH>;
-};
+&caps_word { continue-list = <MINUS UNDERSCORE BKSP DEL LEFT RIGHT DOT COMMA SEMI SLASH>; };
+&sk { release-after-ms = <2000>; quick-release; ignore-modifiers; };
+&sl { release-after-ms = <2000>; };
+&lt { tapping-term-ms = <250>; quick-tap-ms = <200>; global-quick-tap; };
 
-&sk {
-    release-after-ms = <2000>;
-    quick-release;
-    ignore-modifiers;
-};
-
-&sl {
-    release-after-ms = <2000>;
-};
 
 / { 
     behaviors {
-        mtg: mom_tog_layers {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MOM_TOG_LAYERS";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <250>;
-            bindings = <&mo>, <&tog>;
-        };
-        mkp: mom_key_press {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MOM_KEY_PRESS";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <250>;
-            quick-tap-ms = <200>;
-            global-quick-tap;
-            bindings = <&mo>, <&kp>;
-        }; 
-
-        bkspdel: backspace_delete {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BACKSPACE_DELETE";
-            #binding-cells = <0>;
-            bindings = <&kp BKSP>, <&kp DEL>;
-            mods = <(MOD_LSFT|MOD_RSFT|MOD_LGUI|MOD_RGUI)>;
-        };
-        lrpar: lpar_rpar {
-            compatible = "zmk,behavior-mod-morph";
-            label = "LPAR_RPAR";
-            #binding-cells = <0>;
-            bindings = <&kp LPAR>, <&kp RPAR>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        lrbkt: lbkt_rbkt {
-            compatible = "zmk,behavior-mod-morph";
-            label = "LBKT_RBKT";
-            #binding-cells = <0>;
-            bindings = <&kp LBKT>, <&kp RBKT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        qemark: qmark_excl {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QMARK_EXCL";
-            #binding-cells = <0>;
-            bindings = <&kp QMARK>, <&kp EXCL>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        btset: bluetooth_settings {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BLUETOOTH_SETTINGS";
-            #binding-cells = <0>;
-            bindings = <&bt BT_NXT>, <&bt BT_CLR>;
-            mods = <(MOD_LSFT|MOD_RSFT|MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL)>;
-        };
-
+        mtg: mom_tog_layers { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOG_LAYERS"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <250>; bindings = <&mo>, <&tog>; };
+        bkspdel: back_del   { compatible = "zmk,behavior-mod-morph"; label = "BACK_DEL";   #binding-cells = <0>; bindings = <&kp BKSP>, <&kp DEL>;      mods = <(MOD_LSFT|MOD_RSFT|MOD_LGUI|MOD_RGUI)>; };
+        lrpar:   lpar_rpar  { compatible = "zmk,behavior-mod-morph"; label = "LPAR_RPAR";  #binding-cells = <0>; bindings = <&kp LPAR>, <&kp RPAR>;     mods = <(MOD_LSFT|MOD_RSFT)>; };
+        lrbkt:   lbkt_rbkt  { compatible = "zmk,behavior-mod-morph"; label = "LBKT_RBKT";  #binding-cells = <0>; bindings = <&kp LBKT>, <&kp RBKT>;     mods = <(MOD_LSFT|MOD_RSFT)>; };
+        qemark:  qmark_excl { compatible = "zmk,behavior-mod-morph"; label = "QMARK_EXCL"; #binding-cells = <0>; bindings = <&kp QMARK>, <&kp EXCL>;    mods = <(MOD_LSFT|MOD_RSFT)>; };
+        btset:   bluetooths { compatible = "zmk,behavior-mod-morph"; label = "BLUETOOTHS"; #binding-cells = <0>; bindings = <&bt BT_NXT>, <&bt BT_CLR>; mods = <(MOD_LSFT|MOD_RSFT|MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL)>; };
     };
     macros {
-        rls_mods: rls_mods {
-            compatible = "zmk,behavior-macro";
-            label = "ZM_rls_mods";
-            #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <15>;
-            bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI> , <&macro_tap &to 0>;
-        };
+        rls_mods: rls_mods { compatible = "zmk,behavior-macro"; label = "ZM_rls_mods"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
+            bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI> , <&macro_tap &to 0>; };
     };
  
     keymap {
         compatible = "zmk,keymap";
         abc {
             bindings = <
-                &kp Q  &kp W  &kp E  &kp R  &kp T           &kp Y         &kp U  &kp I  &kp O  &kp P 
-                &kp A  &kp S  &kp D  &kp F  &kp G           &kp H         &kp N  &kp L  &kp M  &bkspdel
-                &kp Z  &kp X  &kp C  &kp V  &mtg 1 1        &mkp 2 SPACE  &kp B  &kp J  &kp K  &kp ENTER   
+                &kp Q  &kp W  &kp D  &kp R  &kp G           &kp U        &kp H  &kp M  &kp K      &kp P 
+                &kp A  &kp S  &kp E  &kp T  &kp F           &kp Y        &kp N  &kp I  &kp O      &kp L
+                &kp Z  &kp X  &kp C  &kp V  LAY(1)          &lt 2 SPACE  &kp B  &kp J  &kp ENTER  &bkspdel   
             >;
         };
 
         nav {
             bindings = <
                 &kp ESC    &kp TAB     &kp CAPS      &caps_word    &none          &kp PG_UP     &kp HOME   &kp UP     &kp END    &kp PG_DN
-                &tog 4     &sk LALT    &sk LSHFT     &sk LCTRL     &sk LGUI       &none         &kp LEFT   &kp DOWN   &kp RIGHT  &trans
-                &kp ENTER  &bkspdel    &kp SPACE     &kp PSCRN     &to 0          &mtg 3 3      &kp INS    &kp K_APP  ARCHIVE    &trans
+                &tog 4     &sk LALT    &sk LSHFT     &sk LCTRL     &sk LGUI       &kp K_APP     &kp LEFT   &kp DOWN   &kp RIGHT  ARCHIVE
+                &kp ENTER  &bkspdel    &kp SPACE     &kp PSCRN     &to 0          LAY(3)        &kp INS    &none      &trans     &trans
             >;
         };
 
         sym {
             bindings = <
-                &btset     &kp SEMI    &kp COMMA     &kp DOT       &kp C_BRI_UP   &bt BT_SEL 0  &kp MINUS  &kp SQT    &kp EQUAL  &none
-                &lrpar     &lrbkt      &kp AT        &qemark       &kp C_BRI_DN   &sk RGUI      &sk RCTRL  &sk RSHFT  &sk RALT   &kp SLASH
-                &kp BSLH   &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &mtg 3 3       &none         &kp STAR   &kp AMPS   &kp NUHS   &kp GRAVE
+                &btset     &kp BSLH    &kp AT        &qemark       &kp C_BRI_UP   &bt BT_SEL 0  &kp MINUS  &kp SQT    &kp EQUAL  &none
+                &lrpar     &kp SEMI    &kp COMMA     &kp DOT       &kp C_BRI_DN   &sk RGUI      &sk RCTRL  &sk RSHFT  &sk RALT   &kp SLASH
+                &lrbkt     &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  LAY(3)         &none         &kp STAR   &kp NUHS   &kp AMPS   &kp GRAVE
             >;
         };
 
         num {
             bindings = <
-                &kp N4     &kp N3      &kp N2        &kp N1        &none          &kp DOT       &kp N5     &kp N6     &kp N7     &kp N8
-                &kp N0     &sk LALT    &sk LSHFT     &sk LCTRL     &sk LGUI       &kp COMMA     &kp LEFT   &kp RIGHT  &bkspdel   &kp N9 
-                &sl 5      &none       &none         &none         &to 0          &to 0         &none      &none      &none      &kp ENTER 
+                &none      &sk LALT    &sk LSHFT     &sk LCTRL     &sk LGUI       &none         &kp LEFT   &kp UP     &kp RIGHT  &kp DOWN 
+                &kp N4     &kp N3      &kp N2        &kp N1        &none          &kp COMMA     &kp N5     &kp N6     &kp N7     &kp N8 
+                &kp N0     &sl 5       &none         &none         &to 0          &to 0         &kp DOT    &bkspdel   &kp ENTER  &kp N9 
             >;
         };
 
         nav_per {
             bindings = <
                 &kp ESC    &kp TAB     &kp CAPS      &caps_word    &none          &kp PG_UP     &kp HOME   &kp UP     &kp END    &kp PG_DN
-                &tog 4     &kt LALT    &kt LSHFT     &kt LCTRL     &kt LGUI       &none         &kp LEFT   &kp DOWN   &kp RIGHT  &trans
-                &kp ENTER  &bkspdel    &kp SPACE     &kp PSCRN     &rls_mods      &rls_mods     &kp INS    &kp K_APP  ARCHIVE    &trans
+                &rls_mods  &kt LALT    &kt LSHFT     &kt LCTRL     &kt LGUI       &kp K_APP     &kp LEFT   &kp DOWN   &kp RIGHT  ARCHIVE
+                &kp ENTER  &bkspdel    &kp SPACE     &kp PSCRN     &rls_mods      &rls_mods     &kp INS    &none      &trans     &trans
             >;
         };
 
         fun {
             bindings = <
+                &none      &none       &none         &none         &none          &none         &none      &none      &none      &none 
                 &kp F4     &kp F3      &kp F2        &kp F1        &none          &none         &kp F5     &kp F6     &kp F7     &kp F8
-                &kp F10    &kp F11     &kp F12       &none         &none          &none         &none      &none      &bkspdel   &kp F9 
-                &none      &none       &none         &none         &none          &none         &none      &none      &none      &kp ENTER 
+                &kp F10    &kp F11     &kp F12       &none         &none          &none         &none      &bkspdel   &kp ENTER  &kp F9 
             >;
         };
 

@@ -30,8 +30,8 @@
         compatible = "zmk,keymap";
         abc {
             bindings = <
-                &kp Q  &kp W  &kp D  &kp R  &kp G           &kp U        &kp H  &kp M  &kp K      &kp P 
-                &kp A  &kp S  &kp E  &kp T  &kp F           &kp Y        &kp N  &kp I  &kp O      &kp L
+                &kp Q  &kp W  &kp D  &kp R  &kp F           &kp K        &kp H  &kp M  &kp U      &kp P 
+                &kp A  &kp S  &kp E  &kp T  &kp G           &kp Y        &kp N  &kp I  &kp O      &kp L
                 &kp Z  &kp X  &kp C  &kp V  LAY(1)          &lt 2 SPACE  &kp B  &kp J  &kp ENTER  &bkspdel   
             >;
         };

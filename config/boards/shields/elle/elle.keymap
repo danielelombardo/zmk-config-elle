@@ -30,7 +30,7 @@
         compatible = "zmk,keymap";
         abc {
             bindings = <
-                &kp Q  &kp W  &kp D  &kp R  &kp F           &kp K        &kp H  &kp M  &kp U      &kp P 
+                &kp Q  &kp W  &kp D  &kp R  &kp F           &kp K        &kp H  &kp U  &kp M      &kp P 
                 &kp A  &kp S  &kp E  &kp T  &kp G           &kp Y        &kp N  &kp I  &kp O      &kp L
                 &kp Z  &kp X  &kp C  &kp V  LAY(1)          &lt 2 SPACE  &kp B  &kp J  &kp ENTER  &bkspdel   
             >;
@@ -40,7 +40,7 @@
             bindings = <
                 &none      &kp ESC     &kp CAPS      &caps_word    &none          &kp PG_UP     &kp HOME   &kp UP     &kp END    &kp PG_DN
                 &kp TAB    &sk LALT    &sk LSHFT     &sk LCTRL     &sk LGUI       &kp K_APP     &kp LEFT   &kp DOWN   &kp RIGHT  ARCHIVE
-                &tog 4     &bkspdel    &kp SPACE     &kp PSCRN     &to 0          LAY(3)        &kp INS    &none      &trans     &trans
+                &tog 4     &kp ENTER   &kp SPACE     &kp PSCRN     &to 0          LAY(3)        &kp INS    &none      &trans     &trans
             >;
         };
 
@@ -64,7 +64,7 @@
             bindings = <
                 &none      &kp ESC     &kp CAPS      &caps_word    &none          &kp PG_UP     &kp HOME   &kp UP     &kp END    &kp PG_DN
                 &kp TAB    &kt LALT    &kt LSHFT     &kt LCTRL     &kt LGUI       &kp K_APP     &kp LEFT   &kp DOWN   &kp RIGHT  ARCHIVE
-                &kp ENTER  &bkspdel    &kp SPACE     &kp PSCRN     &rls_mods      &rls_mods     &kp INS    &none      &trans     &trans
+                &bkspdel   &kp ENTER   &kp SPACE     &kp PSCRN     &rls_mods      &rls_mods     &kp INS    &none      &trans     &trans
             >;
         };
 

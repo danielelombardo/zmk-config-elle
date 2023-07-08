@@ -8,7 +8,7 @@
 &caps_word { continue-list = <MINUS UNDERSCORE BKSP DEL LEFT RIGHT DOT COMMA SEMI SLASH>; };
 &sk { release-after-ms = <2000>; quick-release; ignore-modifiers; };
 &sl { release-after-ms = <2000>; };
-&lt { tapping-term-ms = <250>; quick-tap-ms = <200>; global-quick-tap; };
+&lt { tapping-term-ms = <200>; };
 
 
 / { 
@@ -38,9 +38,9 @@
 
         nav {
             bindings = <
-                &none      &kp ESC     &kp CAPS      &caps_word    &none          &kp PG_UP     &kp HOME   &kp UP     &kp END    &kp PG_DN
+                &sl 5      &kp ESC     &kp CAPS      &caps_word    &none          &kp PG_UP     &kp HOME   &kp UP     &kp END    &kp PG_DN
                 &kp TAB    &sk LALT    &sk LSHFT     &sk LCTRL     &sk LGUI       &kp K_APP     &kp LEFT   &kp DOWN   &kp RIGHT  ARCHIVE
-                &tog 4     &kp ENTER   &kp SPACE     &kp PSCRN     &to 0          LAY(3)        &kp INS    &none      &trans     &trans
+                &tog 4     &kp ENTER   &bkspdel      &kp PSCRN     &to 0          &lt 3 SPACE   &kp INS    &none      &trans     &trans
             >;
         };
 
@@ -54,25 +54,25 @@
 
         num {
             bindings = <
-                &none      &sk LALT    &sk LSHFT     &sk LCTRL     &sk LGUI       &none         &kp LEFT   &kp UP     &kp RIGHT  &kp DOWN 
-                &kp N4     &kp N3      &kp N2        &kp N1        &none          &kp COMMA     &kp N5     &kp N6     &kp N7     &kp N8 
-                &kp N0     &sl 5       &none         &none         &to 0          &to 0         &kp DOT    &bkspdel   &kp ENTER  &kp N9 
+                &kp N4     &kp N3      &kp N2        &kp N1        &none          &none         &kp N5     &kp N6     &kp N7     &kp N8 
+                &kp N0     &sk LALT    &sk LSHFT     &sk LCTRL     &sk LGUI       &kp COMMA     &kp DOT    &kp UP     &kp ENTER  &kp N9 
+                &sl 5      &none       &none         &none         &to 0          &to 0         &kp LEFT   &kp DOWN   &kp RIGHT  &bkspdel 
             >;
         };
 
         nav_per {
             bindings = <
-                &none      &kp ESC     &kp CAPS      &caps_word    &none          &kp PG_UP     &kp HOME   &kp UP     &kp END    &kp PG_DN
+                &sl 5      &kp ESC     &kp CAPS      &caps_word    &none          &kp PG_UP     &kp HOME   &kp UP     &kp END    &kp PG_DN
                 &kp TAB    &kt LALT    &kt LSHFT     &kt LCTRL     &kt LGUI       &kp K_APP     &kp LEFT   &kp DOWN   &kp RIGHT  ARCHIVE
-                &bkspdel   &kp ENTER   &kp SPACE     &kp PSCRN     &rls_mods      &rls_mods     &kp INS    &none      &trans     &trans
+                &bkspdel   &kp ENTER   &bkspdel      &kp PSCRN     &rls_mods      &rls_mods     &kp INS    &none      &trans     &trans
             >;
         };
 
         fun {
             bindings = <
-                &none      &none       &none         &none         &none          &none         &none      &none      &none      &none 
                 &kp F4     &kp F3      &kp F2        &kp F1        &none          &none         &kp F5     &kp F6     &kp F7     &kp F8
-                &kp F10    &kp F11     &kp F12       &none         &none          &none         &none      &bkspdel   &kp ENTER  &kp F9 
+                &kp F10    &kp F11     &kp F12       &none         &none          &none         &none      &none      &none      &kp F9 
+                &none      &none       &none         &none         &none          &none         &none      &none      &none      &none 
             >;
         };
 

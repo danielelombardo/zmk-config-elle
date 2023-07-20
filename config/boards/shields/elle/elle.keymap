@@ -38,7 +38,7 @@
 
         nav {
             bindings = <
-                &sl 5      &kp ESC     &kp CAPS      &caps_word    &none          &kp PG_UP     &kp HOME   &kp UP     &kp END    &kp PG_DN
+                &sl 3      &kp ESC     &kp CAPS      &caps_word    &none          &kp PG_UP     &kp HOME   &kp UP     &kp END    &kp PG_DN
                 &kp TAB    &sk LALT    &sk LSHFT     &sk LCTRL     &sk LGUI       &kp K_APP     &kp LEFT   &kp DOWN   &kp RIGHT  ARCHIVE
                 &tog 4     &kp ENTER   &bkspdel      &kp PSCRN     &to 0          &lt 3 SPACE   &kp INS    &none      &trans     &trans
             >;
@@ -54,25 +54,17 @@
 
         num {
             bindings = <
-                &kp N4     &kp N3      &kp N2        &kp N1        &none          &none         &kp N5     &kp N6     &kp N7     &kp N8 
-                &kp N0     &sk LALT    &sk LSHFT     &sk LCTRL     &sk LGUI       &kp COMMA     &kp DOT    &kp UP     &kp ENTER  &kp N9 
-                &sl 5      &none       &none         &none         &to 0          &to 0         &kp LEFT   &kp DOWN   &kp RIGHT  &bkspdel 
+                &kp N0     &kp N3      &kp N2        &kp N1        &none          &none         &kp F1     &kp F2     &kp F3     &kp F10 
+                &kp DOT    &kp N6      &kp N5        &kp N4        &none          &none         &kp F4     &kp F5     &kp F6     &kp F11 
+                &kp COMMA  &kp N9      &kp N8        &kp N7        &to 0          &to 0         &kp F7     &kp F8     &kp F9     &kp F12  
             >;
         };
 
         nav_per {
             bindings = <
-                &sl 5      &kp ESC     &kp CAPS      &caps_word    &none          &kp PG_UP     &kp HOME   &kp UP     &kp END    &kp PG_DN
+                &none      &kp ESC     &kp CAPS      &caps_word    &none          &kp PG_UP     &kp HOME   &kp UP     &kp END    &kp PG_DN
                 &kp TAB    &kt LALT    &kt LSHFT     &kt LCTRL     &kt LGUI       &kp K_APP     &kp LEFT   &kp DOWN   &kp RIGHT  ARCHIVE
                 &bkspdel   &kp ENTER   &bkspdel      &kp PSCRN     &rls_mods      &rls_mods     &kp INS    &none      &trans     &trans
-            >;
-        };
-
-        fun {
-            bindings = <
-                &kp F4     &kp F3      &kp F2        &kp F1        &none          &none         &kp F5     &kp F6     &kp F7     &kp F8
-                &kp F10    &kp F11     &kp F12       &none         &none          &none         &none      &none      &none      &kp F9 
-                &none      &none       &none         &none         &none          &none         &none      &none      &none      &none 
             >;
         };
 

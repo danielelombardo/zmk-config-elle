@@ -46,7 +46,7 @@
         nav {
             bindings = <
                 &none      &kp ESC     &kp CAPS      &caps_word    &none          &kp PG_UP     &kp HOME   &kp UP     &kp END    &none
-                &kp TAB    &sk LALT    &sk LSHFT     &sk LCTRL     &sk LGUI       &kp PG_DN     &kp LEFT   &kp DOWN   &kp RIGHT  &to 4
+                &kp TAB    &sk LGUI    &sk LSHFT     &sk LCTRL     &sk LALT       &kp PG_DN     &kp LEFT   &kp DOWN   &kp RIGHT  &to 4
                 &bkspdel   &kp ENTER   &none         &kp PSCRN     LAY(2)         &kp SPACE     &kp INS    &kp K_APP  &kp ENTER  &bkspdel
             >;
         };
@@ -54,7 +54,7 @@
         sym {
             bindings = <
                 &btset     &lrbrc      &kp AT        &qemark       &kp C_BRI_UP   &none         &kp MINUS  &kp SQT    &kp EQUAL  &bt BT_SEL 1
-                &lrpar     &kp SEMI    &kp COMMA     &kp DOT       &kp C_BRI_DN   &sk RGUI      &sk RCTRL  &sk RSHFT  &sk RALT   &kp SLASH
+                &lrpar     &kp SEMI    &kp COMMA     &kp DOT       &kp C_BRI_DN   &sk RALT      &sk RCTRL  &sk RSHFT  &sk RGUI   &kp SLASH
                 &lrbkt     &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &to 1          &none         &kp STAR   &kp BSLH   &kp AMPS   &kp GRAVE
             >;
         };
@@ -62,7 +62,7 @@
         nav_per {
             bindings = <
                 &none      &kp ESC     &kp CAPS      &caps_word    &none          &kp PG_UP     &kp HOME   &kp UP     &kp END    &none 
-                &kp TAB    &kt LALT    &kt LSHFT     &kt LCTRL     &kt LGUI       &kp PG_DN     &kp LEFT   &kp DOWN   &kp RIGHT  ARCHIVE
+                &kp TAB    &kt LGUI    &kt LSHFT     &kt LCTRL     &kt LALT       &kp PG_DN     &kp LEFT   &kp DOWN   &kp RIGHT  ARCHIVE
                 &bkspdel   &kp ENTER   &none         &kp PSCRN     &rls_mods      &rls_mods     &kp INS    &kp K_APP  &kp ENTER  &bkspdel
             >;
         };

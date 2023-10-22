@@ -20,7 +20,7 @@
     };
     macros {
         rls_mods: rls_mods { compatible = "zmk,behavior-macro"; label = "ZM_rls_mods"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI> , <&macro_tap &to 0>; };
+            bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>; };
     };
  
     keymap {
@@ -43,9 +43,9 @@
 
         nav {
             bindings = <
-                &kp ESC  &kp V  &kt LSHFT  &kt LCTRL  &none        &none      &kp HOME   &kp UP    &kp END    &kp K_APP
-                &kp TAB  &kp C  &kt LALT   &kt LGUI   &none        &none      &kp LEFT   &kp DOWN  &kp RIGHT  &bkspdel
-                &kp Z    &kp X  &none      &kp Y      &rls_mods    &kp SPACE  &kp PG_UP  &kp INS   &kp PG_DN  &kp ENTER
+                &none    &kp ESC    &kt LSHFT  &kt LCTRL  &none     &none      &kp HOME   &kp UP    &kp END    &kp Y 
+                &kp TAB  &rls_mods  &kt LALT   &kt LGUI   &none     &kp K_APP  &kp LEFT   &kp DOWN  &kp RIGHT  &bkspdel
+                &kp Z    &kp X      &kp C      &kp V      &tog 2    &kp SPACE  &kp PG_UP  &kp INS   &kp PG_DN  &kp ENTER
             >;
         };
 

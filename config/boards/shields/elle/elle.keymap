@@ -25,35 +25,43 @@
  
     keymap {
         compatible = "zmk,keymap";
-        abc {
+        abc1 {
             bindings = <
-                &kp Q  &kp W  &kp E  &kp R  &kp F        &kp ENTER    &kp U  &kp I  &kp O  &kp L
-                &kp A  &kp S  &kp D  &kp T  &kp G        &bkspdel     &kp H  &kp N  &kp M  &kp Y 
-                &kp Z  &kp X  &kp C  &kp V  &mtg 1 2     &lt 3 SPACE  &kp B  &kp J  &kp K  &kp P
+                &kp Q  &kp W  &kp E  &kp R     &none        &none        &kp U      &kp I  &kp O  &kp L
+                &kp A  &kp S  &kp D  &kp T     &none        &none        &kp H      &kp N  &kp M  &kp Y 
+                &none  &none  &none  &bkspdel  &mtg 4 3     &lt 1 SPACE  &lt 3 DOT  &none  &none  &none
+            >;
+        };
+
+        abc2 {
+            bindings = <
+                &kp Z     &kp X    &kp C  &kp V       &none         &none  &kp B      &kp J      &kp K   &kp P
+                &kp SEMI  &kp SQT  &kp F  &kp G       &none         &none  &kp COMMA  &kp SLASH  &atexc  &kp ENTER
+                &none     &none    &none  &caps_word  &sk LSHFT     &none  &none      &none      &none   &none
             >;
         };
 
         num {
             bindings = <
-                &kp F10  &kp F3  &kp F2  &kp F1  &none     &none     &kp N1  &kp N2  &kp N3  &kp N0
-                &kp F11  &kp F6  &kp F5  &kp F4  &none     &none     &kp N4  &kp N5  &kp N6  &kp TAB
-                &kp F12  &kp F9  &kp F8  &kp F7  &none     &mtg 3 2  &kp N7  &kp N8  &kp N9  &none 
+                &lrbrc     &kp N9     &kp N8    &kp N7    &none      &none  &kp N1  &kp N2  &kp N3  &kp N0
+                &kp EQUAL  &kp MINUS  &ampstar  &kp BSLH  &none      &none  &kp N4  &kp N5  &kp N6  &kp TAB
+                &none      &none      &none     &lrbkt    &lrpar     &none  &none   &none   &none   &none 
             >;
         };
 
         nav {
             bindings = <
-                &none    &kp ESC    &kt LSHFT  &kt LCTRL  &none     &none      &kp HOME   &kp UP    &kp END    &kp Y 
-                &kp TAB  &rls_mods  &kt LALT   &kt LGUI   &none     &kp K_APP  &kp LEFT   &kp DOWN  &kp RIGHT  &bkspdel
-                &kp Z    &kp X      &kp C      &kp V      &tog 2    &kp SPACE  &kp PG_UP  &kp INS   &kp PG_DN  &kp ENTER
+                &kp PSCRN  &kp ESC    &kt LSHFT  &kt LCTRL  &none        &none      &kp HOME   &kp UP    &kp END    &kp PG_UP 
+                &kp TAB    &rls_mods  &kt LALT   &kt LGUI   &none        &kp K_APP  &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN
+                &none      &none      &none      &none      &mtg 4 3     &kp SPACE  &kp INS    &none     &none      &none
             >;
         };
 
-        sym {
+        ctr {
             bindings = <
-                &atexc     &kp SEMI   &kp SQT    &kp COMMA  &kp PSCRN      &btset        &sk RCTRL  &sk RSHFT   &caps_word    &kp CAPS
-                &kp SLASH  &kp EQUAL  &kp MINUS  &ampstar   &kp BSLH       &bt BT_SEL 1  &sk RGUI   &sk RALT    &kp C_VOL_UP  &kp C_BRI_UP
-                &lrpar     &lrbkt     &lrbrc     &kp GRAVE  &kp DOT        &none         &none      &kp C_MUTE  &kp C_VOL_DN  &kp C_BRI_DN
+                &kp PSCRN  &kp ESC    &sk LSHFT  &sk LCTRL  &none     &none      &kp CAPS   &kp C_MUTE    &kp C_VOL_UP  &kp C_BRI_UP 
+                &kp TAB    &rls_mods  &sk LALT   &sk LGUI   &none     &none      &btset     &bt BT_SEL 1  &kp C_VOL_DN  &kp C_BRI_DN
+                &none      &none      &none      &none      &none     &kp GRAVE  &kp K_APP  &none         &none         &none
             >;
         };
     };

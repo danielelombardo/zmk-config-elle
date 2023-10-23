@@ -27,9 +27,9 @@
         compatible = "zmk,keymap";
         abc {
             bindings = <
-                &kp Q  &kp W  &kp E  &kp R  &kp F        &kp Y        &kp U  &kp I  &kp O  &kp L
-                &kp A  &kp S  &kp D  &kp T  &kp G        &kp P        &kp H  &kp N  &kp M  &bkspdel
-                &kp Z  &kp X  &kp C  &kp V  &mtg 1 2     &lt 3 SPACE  &kp B  &kp J  &kp K  &kp ENTER
+                &kp Q  &kp W  &kp E  &kp R  &kp F        &bkspdel     &kp U  &kp I  &kp O  &kp L
+                &kp A  &kp S  &kp D  &kp T  &kp G        &kp ENTER    &kp H  &kp N  &kp M  &kp Y 
+                &kp Z  &kp X  &kp C  &kp V  &mtg 1 2     &lt 3 SPACE  &kp B  &kp J  &kp K  &kp P
             >;
         };
 

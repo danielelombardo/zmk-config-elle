@@ -29,39 +29,39 @@
             bindings = <
                 &kp Q  &kp W  &kp E  &kp R     &none        &none        &kp U      &kp I  &kp O  &kp L
                 &kp A  &kp S  &kp D  &kp T     &none        &none        &kp H      &kp N  &kp M  &kp Y 
-                &none  &none  &none  &bkspdel  &mtg 4 3     &lt 1 SPACE  &lt 3 DOT  &none  &none  &none
+                &none  &none  &none  &bkspdel  &mtg 4 3     &lt 1 SPACE  &lt 2 DOT  &none  &none  &none
             >;
         };
 
         abc2 {
             bindings = <
                 &kp Z     &kp X    &kp C  &kp V       &none         &none  &kp B      &kp J      &kp K   &kp P
-                &kp SEMI  &kp SQT  &kp F  &kp G       &none         &none  &kp COMMA  &kp SLASH  &atexc  &kp ENTER
-                &none     &none    &none  &caps_word  &sk LSHFT     &none  &none      &none      &none   &none
+                &kp SEMI  &kp SQT  &kp F  &kp G       &none         &none  &kp COMMA  &kp SLASH  &atexc  &kp MINUS
+                &none     &none    &none  &caps_word  &kp ENTER     &none  &none      &none      &none   &none
             >;
         };
 
         num {
             bindings = <
-                &lrbrc     &kp N9     &kp N8    &kp N7    &none      &none  &kp N1  &kp N2  &kp N3  &kp N0
-                &kp EQUAL  &kp MINUS  &ampstar  &kp BSLH  &none      &none  &kp N4  &kp N5  &kp N6  &kp TAB
-                &none      &none      &none     &lrbkt    &lrpar     &none  &none   &none   &none   &none 
+                &kp GRAVE  &kp N9  &kp N8    &kp N7    &none      &none  &kp N1  &kp N2  &kp N3  &kp N0
+                &kp EQUAL  &lrbrc  &ampstar  &kp BSLH  &none      &none  &kp N4  &kp N5  &kp N6  &kp TAB
+                &none      &none   &none     &lrbkt    &lrpar     &none  &none   &none   &none   &none 
             >;
         };
 
         nav {
             bindings = <
                 &kp PSCRN  &kp ESC    &kt LSHFT  &kt LCTRL  &none        &none      &kp HOME   &kp UP    &kp END    &kp PG_UP 
-                &kp TAB    &rls_mods  &kt LALT   &kt LGUI   &none        &kp K_APP  &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN
-                &none      &none      &none      &none      &mtg 4 3     &kp SPACE  &kp INS    &none     &none      &none
+                &kp TAB    &rls_mods  &kt LALT   &kt LGUI   &none        &none      &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN
+                &none      &none      &none      &bkspdel   &mtg 4 3     &kp SPACE  &kp ENTER  &none     &none      &none
             >;
         };
 
         ctr {
             bindings = <
-                &kp PSCRN  &kp ESC    &sk LSHFT  &sk LCTRL  &none     &none      &kp CAPS   &kp C_MUTE    &kp C_VOL_UP  &kp C_BRI_UP 
-                &kp TAB    &rls_mods  &sk LALT   &sk LGUI   &none     &none      &btset     &bt BT_SEL 1  &kp C_VOL_DN  &kp C_BRI_DN
-                &none      &none      &none      &none      &none     &kp GRAVE  &kp K_APP  &none         &none         &none
+                &kp PSCRN  &kp ESC    &sk LSHFT  &sk LCTRL  &none     &none    &kp CAPS   &kp C_MUTE    &kp C_VOL_UP  &kp C_BRI_UP 
+                &kp TAB    &rls_mods  &sk LALT   &sk LGUI   &none     &none    &btset     &bt BT_SEL 1  &kp C_VOL_DN  &kp C_BRI_DN
+                &none      &none      &none      &none      &none     &kp INS  &kp K_APP  &none         &none         &none
             >;
         };
     };

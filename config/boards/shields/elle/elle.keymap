@@ -35,17 +35,17 @@
 
         abc2 {
             bindings = <
-                &kp Z     &kp X    &kp C  &kp V       &none         &none  &kp B      &kp J      &kp K   &kp P
-                &kp SEMI  &kp SQT  &kp F  &kp G       &none         &none  &kp COMMA  &kp SLASH  &atexc  &kp MINUS
-                &none     &none    &none  &caps_word  &kp ENTER     &none  &none      &none      &none   &none
+                &kp Z    &kp X     &kp C  &kp V       &none         &none  &kp B      &kp J   &kp K      &kp P
+                &kp SQT  &kp SEMI  &kp F  &kp G       &none         &none  &kp MINUS  &atexc  &kp SLASH  &kp COMMA
+                &none    &none     &none  &caps_word  &kp ENTER     &none  &none      &none   &none      &none
             >;
         };
 
         num {
             bindings = <
-                &kp GRAVE  &kp N9  &kp N8    &kp N7    &none      &none  &kp N1  &kp N2  &kp N3  &kp N0
-                &kp EQUAL  &lrbrc  &ampstar  &kp BSLH  &none      &none  &kp N4  &kp N5  &kp N6  &kp TAB
-                &none      &none   &none     &lrbkt    &lrpar     &none  &none   &none   &none   &none 
+                &kp GRAVE  &kp N9    &kp N8    &kp N7  &none      &none  &kp N1  &kp N2  &kp N3  &kp N0
+                &kp EQUAL  &ampstar  &kp BSLH  &lrbrc  &none      &none  &kp N4  &kp N5  &kp N6  &kp TAB
+                &none      &none     &none     &lrbkt  &lrpar     &none  &none   &none   &none   &none 
             >;
         };
 

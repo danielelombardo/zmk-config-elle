@@ -16,6 +16,7 @@
         lrbrc:   lbrc_rbrc  { compatible = "zmk,behavior-mod-morph"; label = "LBRC_RBRC";  #binding-cells = <0>; bindings = <&kp LBRC>, <&kp RBRC>;     mods = <(MOD_LSFT|MOD_RSFT)>; };
         atexc:   at_excl    { compatible = "zmk,behavior-mod-morph"; label = "AT_EXCL";    #binding-cells = <0>; bindings = <&kp AT>,   <&kp EXCL>;     mods = <(MOD_LSFT|MOD_RSFT)>; };
         ampstar: amps_star  { compatible = "zmk,behavior-mod-morph"; label = "AMPS_STAR";  #binding-cells = <0>; bindings = <&kp AMPS>, <&kp STAR>;     mods = <(MOD_LSFT|MOD_RSFT)>; };
+        hashtil: hash_tilde { compatible = "zmk,behavior-mod-morph"; label = "HASH_TILDE"; #binding-cells = <0>; bindings = <&kp HASH>, <&kp TILDE>;    mods = <(MOD_LSFT|MOD_RSFT)>; };
         btset:   bluetooths { compatible = "zmk,behavior-mod-morph"; label = "BLUETOOTHS"; #binding-cells = <0>; bindings = <&bt BT_NXT>, <&bt BT_CLR>; mods = <(MOD_LSFT|MOD_RSFT|MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL)>; };
         h2k: copy_paste { compatible = "zmk,behavior-hold-tap"; label = "COPY_PASTE"; #binding-cells = <2>; tapping-term-ms = <200>; flavor = "balanced"; bindings = <&kp>, <&kp>; };
     };
@@ -45,7 +46,7 @@
         num {
             bindings = <
                 &kp BSLH  &kp N9  &kp N8  &kp N7     &none           &none  &kp N1  &kp N2  &kp N3  &kp N0 
-                &ampstar  &lrpar  &lrbkt  &lrbrc     &none           &none  &kp N4  &kp N5  &kp N6  &kp NUHS 
+                &ampstar  &lrpar  &lrbkt  &lrbrc     &none           &none  &kp N4  &kp N5  &kp N6  &hashtil 
                 &none     &none   &none   &sk LSHFT  &lt 4 EQUAL     &none  &none   &none   &none   &none 
             >;
         };
@@ -60,9 +61,9 @@
 
         ctr {
             bindings = <
-                &h2k C V  &kp ESC    &sk LSHFT  &sk LCTRL  &none     &none     &kp CAPS   &caps_word    &kp PSCRN   &kp C_VOL_UP 
-                &kp TAB   &rls_mods  &sk LALT   &sk LGUI   &none     &none     &btset     &bt BT_SEL 1  &kp C_MUTE  &kp C_VOL_DN 
-                &none     &none      &none      &none      &none     &mtg 5 5  &none      &none         &none       &none 
+                &h2k C V  &kp ESC    &sk LSHFT  &sk LCTRL  &none     &none     &kp CAPS     &caps_word    &kp PSCRN   &kp C_VOL_UP 
+                &kp TAB   &rls_mods  &sk LALT   &sk LGUI   &none     &none     &btset       &bt BT_SEL 1  &kp C_MUTE  &kp C_VOL_DN 
+                &none     &none      &none      &none      &none     &mtg 5 5  &key_repeat  &none         &none       &none 
             >;
         };
 

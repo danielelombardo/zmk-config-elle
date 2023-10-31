@@ -6,7 +6,7 @@
 &sk { release-after-ms = <2000>; quick-release; ignore-modifiers; };
 &lt { tapping-term-ms = <200>; };
 
-#define SHFMOD &mosk 6 LSHFT
+#define SHFMOD &mosk 5 LSHFT
 
 / { 
     behaviors {

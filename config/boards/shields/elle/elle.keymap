@@ -11,9 +11,9 @@
 / { 
     behaviors {
         mosk: moml_oneshot  { compatible = "zmk,behavior-hold-tap"; label = "MOML_ONESHOT"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; }; 
-        escrls: esc_rlsmods { compatible = "zmk,behavior-tap-dance";label = "ESC_RLSMODS";  #binding-cells = <0>; tapping-term-ms = <200>; bindings = <&kp ESC>, <&rls_mods>; }; 
-        shc1:    kp_shc1    { compatible = "zmk,behavior-tap-dance";label = "KP_SHC1";      #binding-cells = <0>; tapping-term-ms = <200>; bindings = <&kp C>, <&kp Z>, <&kp X>; }; 
-        shc2:    kp_shc2    { compatible = "zmk,behavior-tap-dance";label = "KP_SHC2";      #binding-cells = <0>; tapping-term-ms = <200>; bindings = <&kp V>, <&kp Y>; }; 
+        escrls: esc_rlsmods { compatible = "zmk,behavior-tap-dance";label = "ESC_RLSMODS";  #binding-cells = <0>; tapping-term-ms = <500>; bindings = <&kp ESC>, <&rls_mods>; }; 
+        shc1:    kp_shc1    { compatible = "zmk,behavior-tap-dance";label = "KP_SHC1";      #binding-cells = <0>; tapping-term-ms = <500>; bindings = <&kp C>, <&kp Z>, <&kp X>; }; 
+        shc2:    kp_shc2    { compatible = "zmk,behavior-tap-dance";label = "KP_SHC2";      #binding-cells = <0>; tapping-term-ms = <500>; bindings = <&kp V>, <&kp Y>; }; 
         bkspdel: back_del   { compatible = "zmk,behavior-mod-morph"; label = "BACK_DEL";    #binding-cells = <0>; bindings = <&kp BKSP>, <&kp DEL>;      mods = <(MOD_LSFT)>; }; 
         lrpar:   lpar_rpar  { compatible = "zmk,behavior-mod-morph"; label = "LPAR_RPAR";   #binding-cells = <0>; bindings = <&kp LPAR>, <&kp RPAR>;     mods = <(MOD_LSFT)>; }; 
         lrbkt:   lbkt_rbkt  { compatible = "zmk,behavior-mod-morph"; label = "LBKT_RBKT";   #binding-cells = <0>; bindings = <&kp LBKT>, <&kp RBKT>;     mods = <(MOD_LSFT)>; }; 

@@ -8,7 +8,7 @@
 
 #define SHFMOD &mosk 6 LSHFT
 
-/  
+/{  
     behaviors {
         mosk: moml_oneshot  { compatible = "zmk,behavior-hold-tap"; label = "MOML_ONESHOT"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; }; 
         escrls: esc_rlsmods { compatible = "zmk,behavior-tap-dance";label = "ESC_RLSMODS";  #binding-cells = <0>; tapping-term-ms = <500>; bindings = <&kp ESC>, <&rls_mods>; }; 
@@ -28,7 +28,7 @@
             bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>; };
     };
  
-    keymap 
+    keymap {
           compatible = "zmk,keymap";
         abc1 {
             bindings = <
@@ -86,5 +86,5 @@
             >;
         };
 
-    ;
-;
+    };
+};

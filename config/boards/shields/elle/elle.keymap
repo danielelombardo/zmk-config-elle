@@ -8,7 +8,7 @@
 
 #define SHFMOD &mosk 6 LSHFT
 
-/{  
+/{
     behaviors {
         mosk: moml_oneshot  { compatible = "zmk,behavior-hold-tap"; label = "MOML_ONESHOT"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; }; 
         escrls: esc_rlsmods { compatible = "zmk,behavior-tap-dance";label = "ESC_RLSMODS";  #binding-cells = <0>; tapping-term-ms = <500>; bindings = <&kp ESC>, <&rls_mods>; }; 
@@ -56,9 +56,9 @@
 
         nav {
             bindings = <
-                &rls_mods  &kt LCTRL  &kt LGUI  &kt LALT   &none      &none      &kp HOME   &kp UP    &kp END    &kp PG_UP 
-                &kp TAB    &kp ESC    &to 0     &kt LSHFT  &none      &none      &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN 
-                &none      &none      &none     &bkspdel   SHFMOD     &kp SPACE  &kp ENTER  &none     &none      &none 
+                &kp ESC  &kt LCTRL  &kt LGUI  &kt LSHFT  &none      &none      &kp HOME   &kp UP    &kp END    &kp PG_UP 
+                &kp TAB  &rls_mods  &kt LALT  &to 0      &none      &none      &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN 
+                &none    &none      &none     &bkspdel   SHFMOD     &kp SPACE  &kp ENTER  &none     &none      &none 
             >;
         };
 
@@ -80,9 +80,9 @@
 
         ctr {
             bindings = <
-                &rls_mods  &sk LCTRL  &sk LGUI  &sk LALT  &none     &none  &caps_word  &key_repeat  &kp C_MUTE  &kp C_VOL_UP 
-                &kp TAB    &kp ESC    &shc1     &shc2     &none     &none  &kp CAPS    &kp INS      &kp PSCRN   &kp C_VOL_DN 
-                &none      &none      &none     &none     &none     &to 3  &to 4       &none        &none       &none 
+                &kp ESC  &sk LCTRL  &sk LGUI  &shc1  &none     &none  &caps_word  &key_repeat  &kp C_MUTE  &kp C_VOL_UP 
+                &kp TAB  &rls_mods  &sk LALT  &shc2  &none     &none  &kp CAPS    &kp INS      &kp PSCRN   &kp C_VOL_DN 
+                &none    &none      &none     &none  &none     &to 3  &to 4       &none        &none       &none 
             >;
         };
 

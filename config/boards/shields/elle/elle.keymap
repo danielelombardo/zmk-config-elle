@@ -20,7 +20,7 @@
     behaviors {
         mosk: moml_1shot_k  { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_K"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; }; 
         mosl: moml_1shot_l  { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; }; 
-        motg: mom_toggle_l  { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOGGLE_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tg>; }; 
+        motg: mom_toggle_l  { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOGGLE_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tog>; }; 
         tk: two_keys        { compatible = "zmk,behavior-hold-tap"; label = "TWO_KEYS";     #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <500>; bindings = <&kp>, <&kp>; }; 
 
         bkspdel: back_del   { compatible = "zmk,behavior-mod-morph"; label = "BACK_DEL";    #binding-cells = <0>; bindings = <&kp BKSP>, <&kp DEL>;      mods = <(MOD_LSFT)>; }; 

@@ -21,21 +21,9 @@
         mosk: moml_1shot_k  { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_K"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; }; 
         mosl: moml_1shot_l  { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; }; 
         motg: mom_toggle_l  { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOGGLE_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tg>; }; 
-        2k: two_keys        { compatible = "zmk,behavior-hold-tap"; label = "TWO_KEYS";     #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <500>; bindings = <&kp>, <&kp>; }; 
+        tk: two_keys        { compatible = "zmk,behavior-hold-tap"; label = "TWO_KEYS";     #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <500>; bindings = <&kp>, <&kp>; }; 
 
         bkspdel: back_del   { compatible = "zmk,behavior-mod-morph"; label = "BACK_DEL";    #binding-cells = <0>; bindings = <&kp BKSP>, <&kp DEL>;      mods = <(MOD_LSFT)>; }; 
-
-        escrls: esc_rlsmods { compatible = "zmk,behavior-tap-dance";label = "ESC_RLSMODS";  #binding-cells = <0>; tapping-term-ms = <500>; bindings = <&kp ESC>, <&rls_mods>; }; 
-        shc1:    kp_shc1    { compatible = "zmk,behavior-tap-dance";label = "KP_SHC1";      #binding-cells = <0>; tapping-term-ms = <500>; bindings = <&kp C>, <&kp Z>, <&kp X>; }; 
-        shc2:    kp_shc2    { compatible = "zmk,behavior-tap-dance";label = "KP_SHC2";      #binding-cells = <0>; tapping-term-ms = <500>; bindings = <&kp V>, <&kp Y>; }; 
-
-        lrpar:   lpar_rpar  { compatible = "zmk,behavior-mod-morph"; label = "LPAR_RPAR";   #binding-cells = <0>; bindings = <&kp LPAR>, <&kp RPAR>;     mods = <(MOD_LSFT)>; }; 
-        lrbkt:   lbkt_rbkt  { compatible = "zmk,behavior-mod-morph"; label = "LBKT_RBKT";   #binding-cells = <0>; bindings = <&kp LBKT>, <&kp RBKT>;     mods = <(MOD_LSFT)>; }; 
-        lrbrc:   lbrc_rbrc  { compatible = "zmk,behavior-mod-morph"; label = "LBRC_RBRC";   #binding-cells = <0>; bindings = <&kp LBRC>, <&kp RBRC>;     mods = <(MOD_LSFT)>; }; 
-        atexc:   at_excl    { compatible = "zmk,behavior-mod-morph"; label = "AT_EXCL";     #binding-cells = <0>; bindings = <&kp AT>,   <&kp EXCL>;     mods = <(MOD_LSFT)>; }; 
-        ampstar: amps_star  { compatible = "zmk,behavior-mod-morph"; label = "AMPS_STAR";   #binding-cells = <0>; bindings = <&kp AMPS>, <&kp STAR>;     mods = <(MOD_LSFT)>; }; 
-        hashtil: hash_tilde { compatible = "zmk,behavior-mod-morph"; label = "HASH_TILDE";  #binding-cells = <0>; bindings = <&kp HASH>, <&kp TILDE>;    mods = <(MOD_LSFT)>; }; 
-        btset:   bluetooths { compatible = "zmk,behavior-mod-morph"; label = "BLUETOOTHS";  #binding-cells = <0>; bindings = <&bt BT_NXT>, <&bt BT_CLR>; mods = <(MOD_LSFT|MOD_LALT|MOD_LCTL|MOD_LGUI)>; }; 
     };
     macros {
         rls_mods: rls_mods { compatible = "zmk,behavior-macro"; label = "ZM_rls_mods"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
@@ -87,7 +75,7 @@
         nav {
             bindings = <
                 &sk LSHFT  &sk LCTRL  &sk LGUI  &sk LALT   &none       &none      &kp HOME   &kp UP    &kp END    &kp PG_UP 
-                &kp TAB    &tog A2  &2k INS SPACE  &sl OS  &none       &none      &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN 
+                &kp TAB    &tog A2  &tk INS SPACE  &sl OS  &none       &none      &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN 
                 &none      &none      &none     &rls_mods  &to 0       &bkspdel   &kp ENTER  &none     &none      &none 
             >;
         };

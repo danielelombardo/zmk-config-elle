@@ -4,17 +4,31 @@
 
 &caps_word { continue-list = <MINUS UNDERSCORE BKSP DEL LEFT RIGHT DOT COMMA SEMI SLASH>; };
 &sk { release-after-ms = <2000>; quick-release; ignore-modifiers; };
+&sl { release-after-ms = <2000>; };
 &lt { tapping-term-ms = <200>; };
 
-#define SHFMOD &mosk 6 LSHFT
+#define A1 0
+#define A2 1
+#define NU 2
+#define SY 3
+#define FU 4
+#define NV 5
+#define OS 6
+#define BT 7
 
 /{
     behaviors {
-        mosk: moml_oneshot  { compatible = "zmk,behavior-hold-tap"; label = "MOML_ONESHOT"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; }; 
+        mosk: moml_1shot_k  { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_K"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; }; 
+        mosl: moml_1shot_l  { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; }; 
+        motg: mom_toggle_l  { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOGGLE_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tg>; }; 
+        2k: two_keys        { compatible = "zmk,behavior-hold-tap"; label = "TWO_KEYS";     #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <500>; bindings = <&kp>, <&kp>; }; 
+
+        bkspdel: back_del   { compatible = "zmk,behavior-mod-morph"; label = "BACK_DEL";    #binding-cells = <0>; bindings = <&kp BKSP>, <&kp DEL>;      mods = <(MOD_LSFT)>; }; 
+
         escrls: esc_rlsmods { compatible = "zmk,behavior-tap-dance";label = "ESC_RLSMODS";  #binding-cells = <0>; tapping-term-ms = <500>; bindings = <&kp ESC>, <&rls_mods>; }; 
         shc1:    kp_shc1    { compatible = "zmk,behavior-tap-dance";label = "KP_SHC1";      #binding-cells = <0>; tapping-term-ms = <500>; bindings = <&kp C>, <&kp Z>, <&kp X>; }; 
         shc2:    kp_shc2    { compatible = "zmk,behavior-tap-dance";label = "KP_SHC2";      #binding-cells = <0>; tapping-term-ms = <500>; bindings = <&kp V>, <&kp Y>; }; 
-        bkspdel: back_del   { compatible = "zmk,behavior-mod-morph"; label = "BACK_DEL";    #binding-cells = <0>; bindings = <&kp BKSP>, <&kp DEL>;      mods = <(MOD_LSFT)>; }; 
+
         lrpar:   lpar_rpar  { compatible = "zmk,behavior-mod-morph"; label = "LPAR_RPAR";   #binding-cells = <0>; bindings = <&kp LPAR>, <&kp RPAR>;     mods = <(MOD_LSFT)>; }; 
         lrbkt:   lbkt_rbkt  { compatible = "zmk,behavior-mod-morph"; label = "LBKT_RBKT";   #binding-cells = <0>; bindings = <&kp LBKT>, <&kp RBKT>;     mods = <(MOD_LSFT)>; }; 
         lrbrc:   lbrc_rbrc  { compatible = "zmk,behavior-mod-morph"; label = "LBRC_RBRC";   #binding-cells = <0>; bindings = <&kp LBRC>, <&kp RBRC>;     mods = <(MOD_LSFT)>; }; 
@@ -31,65 +45,66 @@
     keymap {
           compatible = "zmk,keymap";
         abc1 {
-            label = "a1";
             bindings = <
-                &kp Q  &kp W  &kp E  &kp R     &none     &none        &kp U      &kp I  &kp O  &kp L 
-                &kp A  &kp S  &kp D  &kp T     &none     &none        &kp H      &kp N  &kp M  &kp Y 
-                &none  &none  &none  &bkspdel  SHFMOD    &lt a2 SPACE  &lt nm ENTER  &none  &none  &none 
+                &kp Q  &kp W  &kp E  &kp R      &none         &none         &kp U  &kp I  &kp O  &kp L 
+                &kp A  &kp S  &kp D  &kp T      &none         &none         &kp H  &kp N  &kp M  &kp Y 
+                &none  &none  &none  &sk LSHFT  &mosl NV A2   &lt OS SPACE  &key_repeat  &none  &none  &none 
             >;
         };
 
         abc2 {
-            label = "a2";
             bindings = <
-                &kp Z      &kp X     &kp C  &kp V    &none      &none  &kp B      &kp J   &kp K      &kp P 
-                &kp COMMA  &kp SEMI  &kp F  &kp G    &none      &none  &kp MINUS  &atexc  &kp SLASH  &kp SQT 
-                &none      &none     &none  &kp DOT  SHFMOD     &none  &none      &none   &none      &none 
+                &kp Z    &kp X    &kp C  &kp V      &none          &none      &kp B      &kp J     &kp K      &kp P 
+                &kp SQT  &kp DQT  &kp F  &kp G      &none          &none      &kp COLON  &kp SEMI  &kp SLASH  &kp QMARK
+                &none    &none    &none  &kp MINUS  &motg NV A2    &kp COMMA  &kp DOT    &none     &none      &none 
             >;
         };
 
         num {
-            label = "nm";
             bindings = <
-                &kp BSLH  &kp N9  &kp N8  &kp N7  &none     &none   &kp N1  &kp N2  &kp N3  &kp EQUAL
-                &ampstar  &lrpar  &lrbkt  &lrbrc  &none     &none   &kp N4  &kp N5  &kp N6  &hashtil 
-                &none     &none   &none   &kp N0  SHFMOD    &none   &none   &none   &none   &none 
+                &sl A2     &kp N9     &kp N8     &kp N7    &none           &none   &kp N1  &kp N2  &kp N3  &sl SY 
+                &sk LSHFT  &sk LCTRL  &sk LGUI   &sk LALT  &none           &none   &kp N4  &kp N5  &kp N6  &to NU 
+                &none      &none      &none                &motg NV NU     &kp N0  &key_repeat  &none  &none  &none 
             >;
          };
 
-        nav {
-            label = "nv";
+        sym {
             bindings = <
-                &kp ESC  &kt LCTRL  &kt LGUI  &kt LSHFT  &none      &none      &kp HOME   &kp UP    &kp END    &kp PG_UP 
-                &kp TAB  &rls_mods  &kt LALT  &to 0      &none      &none      &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN 
-                &none    &none      &none     &bkspdel   SHFMOD     &kp SPACE  &kp ENTER  &none     &none      &none 
+                &kp LT  &kp LPAR  &kp LBKT  &kp LBRC   &none         &none     &kp EXCL   &kp AT    &kp HASH  &kp BSLH 
+                &kp GT  &kp RPAR  &kp RBKT  &kp RBRC   &none         &none     &kp STAR   &kp AMPS  &kp PIPE  &kp TILDE 
+                &none   &none     &none     &kp UNDER  &kp EQUAL     &kp PLUS  &kp GRAVE  &none  &none  &none 
+            >;
+         };
+
+        fun {
+            bindings = <
+                &none  &kp F9   &kp F8   &kp F7   &none          &none   &kp F1  &kp F2  &kp F3  &none 
+                &none  &kp F12  &kp F11  &kp F10  &none          &none   &kp F4  &kp F5  &kp F6  &to FU 
+                &none  &none    &none    &none    &motg NV FU    &to 0   &to 0   &none   &none   &none 
             >;
         };
 
-        fun {
-            label = "fu";
+        nav {
             bindings = <
-                &none  &kp F9   &kp F8   &kp F7   &none      &none   &kp F1  &kp F2  &kp F3  &kp C_BRI_UP 
-                &mo 5  &kp F12  &kp F11  &kp F10  &none      &none   &kp F4  &kp F5  &kp F6  &kp C_BRI_DN 
-                &none  &none    &none    &none    SHFMOD     &to 0   &to 0   &none   &none   &none 
+                &sk LSHFT  &sk LCTRL  &sk LGUI  &sk LALT   &none       &none      &kp HOME   &kp UP    &kp END    &kp PG_UP 
+                &kp TAB    &tog A2  &2k INS SPACE  &sl OS  &none       &none      &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN 
+                &none      &none      &none     &rls_mods  &to 0       &bkspdel   &kp ENTER  &none     &none      &none 
+            >;
+        };
+
+        osm {
+            bindings = <
+                &kp ESC    &rls_mods  &kp CAPS  &caps_word  &none      &none  &sl NU  &mosl SY SY  &sl FU     &to BT 
+                &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT    &none      &none  &none   &none        &kp PSCRN  &to NU 
+                &none      &none      &none     &sk LSHFT   &to NV     &to 0  &none   &none  &none   &none 
             >;
         };
 
         btp {
-            label = "bt";
             bindings = <
-                &none  &none  &none  &none  &none     &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 
-                &none  &none  &none  &none  &none     &none  &none         &bt BT_CLR    &none         &none 
-                &none  &none  &none  &none  &none     &none  &none         &none         &none         &none 
-            >;
-        };
-
-        ctr {
-            label = "cx";
-            bindings = <
-                &kp ESC  &sk LCTRL  &sk LGUI  &shc1  &none     &none  &caps_word  &key_repeat  &kp C_MUTE  &kp C_VOL_UP 
-                &kp TAB  &rls_mods  &sk LALT  &shc2  &none     &none  &kp CAPS    &kp INS      &kp PSCRN   &kp C_VOL_DN 
-                &none    &none      &none     &none  &none     &to 3  &to 4       &none        &none       &none 
+                &none  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &none     &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 
+                &none  &kp C_BRI_DN  &none       &kp C_BRI_UP  &none     &none  &none         &bt BT_CLR    &none         &none 
+                &none  &none         &none       &none         &to 0     &to 0  &none         &none         &none         &none 
             >;
         };
 

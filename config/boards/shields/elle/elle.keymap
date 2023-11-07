@@ -3,18 +3,19 @@
 #include <dt-bindings/zmk/bt.h>
 
 &caps_word { continue-list = <MINUS UNDERSCORE BKSP DEL LEFT RIGHT DOT COMMA SEMI SLASH>; };
-&sk { release-after-ms = <2000>; quick-release; ignore-modifiers; };
-&sl { release-after-ms = <2000>; };
-&lt { tapping-term-ms = <200>; };
+&sk { release-after-ms = <3000>; quick-release; ignore-modifiers; };
+&sl { release-after-ms = <3000>; };
+&lt { tapping-term-ms = <300>; };
 
 #define A1 0
 #define A2 1
 #define NU 2
 #define SY 3
 #define FU 4
-#define NV 5
-#define OS 6
-#define BT 7
+#define SC 5
+#define NV 6
+#define OS 7
+#define BT 8
 
 /{
     behaviors {
@@ -33,16 +34,16 @@
           compatible = "zmk,keymap";
         abc1 {
             bindings = <
-                &kp Q  &kp W  &kp E  &kp R        &none         &none         &kp U  &kp I  &kp O  &kp L 
-                &kp A  &kp S  &kp D  &kp T        &none         &none         &kp H  &kp N  &kp M  &kp Y 
+                &kp F  &kp A  &kp E  &kp T        &none         &none         &kp N  &kp I  &kp O  &kp L 
+                &kp W  &kp S  &kp D  &kp R        &none         &none         &kp H  &kp U  &kp M  &kp C 
                 &none  &none  &none  &key_repeat  &mosl NV A2   &lt OS SPACE  &sk LSHFT  &none  &none  &none 
             >;
         };
 
         abc2 {
             bindings = <
-                &kp Z    &kp X    &kp C  &kp V      &none          &none      &kp B      &kp J     &kp K      &kp P 
-                &kp SQT  &kp DQT  &kp F  &kp G      &none          &none      &kp COLON  &kp SEMI  &kp SLASH  &kp QMARK
+                &kp Z    &kp G    &kp Y  &kp V      &none          &none      &kp B      &kp P     &kp K      &kp J 
+                &kp SQT  &kp DQT  &kp Q  &kp X      &none          &none      &kp COLON  &kp SEMI  &kp SLASH  &kp QMARK
                 &none    &none    &none  &kp MINUS  &motg NV A2    &kp COMMA  &kp DOT    &none     &none      &none 
             >;
         };
@@ -66,15 +67,23 @@
         fun {
             bindings = <
                 &none  &kp F9   &kp F8   &kp F7   &none          &none   &kp F1  &kp F2  &kp F3  &none 
-                &none  &kp F12  &kp F11  &kp F10  &none          &none   &kp F4  &kp F5  &kp F6  &to FU 
+                &none  &kp F12  &kp F11  &kp F10  &none          &none   &kp F4  &kp F5  &kp F6  &none 
                 &none  &none    &none    &none    &motg NV FU    &to 0   &to 0   &none   &none   &none 
+            >;
+        };
+
+        shc {
+            bindings = <
+                &none  &kp Z  &kp C  &kp V  &none     &none  &none  &none  &none  &none 
+                &none  &kp Y  &kp X  &none  &none     &none  &none  &none  &none  &none 
+                &none  &none  &none  &none  &to 0     &to 0  &none  &none  &none  &none 
             >;
         };
 
         nav {
             bindings = <
                 &sk LSHFT  &sk LCTRL  &sk LGUI  &sk LALT  &none       &none      &kp HOME   &kp UP    &kp END    &kp PG_UP 
-                &kp TAB    &rls_mods  &tog A2   &sl OS    &none       &none      &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN 
+                &kp TAB    &rls_mods  &tog SC   &sl OS    &none       &none      &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN 
                 &none      &none      &none     &none     &to 0       &bkspdel   &kp ENTER  &none     &none      &none 
             >;
         };
@@ -82,7 +91,7 @@
         osm {
             bindings = <
                 &to NV     &rls_mods  &kp CAPS  &caps_word  &none      &none  &sl NU   &mosl SY SY  &to NU     &to BT 
-                &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT    &none      &none  &kp INS  &kp SPACE    &kp PSCRN  &sl FU 
+                &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT    &none      &none  &kp INS  &kp SPACE    &kp PSCRN  &to FU 
                 &none      &none      &none     &kp ESC     &kp TAB    &to 0  &none    &none  &none   &none 
             >;
         };

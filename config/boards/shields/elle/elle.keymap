@@ -8,8 +8,8 @@
 &lt { tapping-term-ms = <300>; };
 
 #define A1 0
-#define A2 1
-#define NU 2
+#define NU 1
+#define A2 2
 #define SY 3
 #define FU 4
 #define SC 5
@@ -22,6 +22,7 @@
         mosk: moml_1shot_k  { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_K"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; }; 
         mosl: moml_1shot_l  { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; }; 
         motg: mom_toggle_l  { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOGGLE_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tog>; }; 
+        motg: moml_kp       { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
 
         bkspdel: back_del   { compatible = "zmk,behavior-mod-morph"; label = "BACK_DEL";    #binding-cells = <0>; bindings = <&kp BKSP>, <&kp DEL>;      mods = <(MOD_LSFT)>; }; 
     };
@@ -40,6 +41,14 @@
             >;
         };
 
+        num {
+            bindings = <
+                &none  &kp N1  &kp N2  &kp N3 &none                &none  &kp N7  &kp N8  &kp N9  &none 
+                &none  &kp N4  &kp N5  &kp N6 &none                &none  &sl A2  &sl SY  &none   &none 
+                &none  &none   &none   &key_repeat  &mokp NV N0    &to 0  &none   &none   &none   &none 
+            >;
+         };
+
         abc2 {
             bindings = <
                 &kp Z    &kp V    &kp Y      &kp X      &none          &none      &kp B    &kp P     &kp K      &kp Q 
@@ -47,14 +56,6 @@
                 &none    &none    &none      &kp SLASH  &motg NV A2    &kp COMMA  &kp DOT  &none     &none      &none 
             >;
         };
-
-        num {
-            bindings = <
-                &none      &kp N9     &kp N8     &kp N7       &none           &none   &kp N1  &kp N2  &kp N3  &sl SY 
-                &sk LSHFT  &sk LCTRL  &sk LGUI   &sk LALT     &none           &none   &kp N4  &kp N5  &kp N6  &sl A2 
-                &none      &none      &none      &key_repeat  &motg NV NU     &kp N0  &none   &none  &none  &none 
-            >;
-         };
 
         sym {
             bindings = <
@@ -82,9 +83,9 @@
 
         nav {
             bindings = <
-                &sk LSHFT  &sk LCTRL  &sk LGUI  &sk LALT  &none       &none      &kp HOME   &kp UP    &kp END    &kp PG_UP 
-                &kp TAB    &rls_mods  &tog SC   &sl OS    &none       &none      &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN 
-                &none      &none      &none     &none     &to 0       &bkspdel   &kp ENTER  &none     &none      &none 
+                &sk LSHFT  &sk LCTRL  &sk LGUI  &sk LALT   &none       &none     &kp HOME   &kp UP    &kp END    &kp PG_UP 
+                &kp TAB    &rls_mods  &tog SC   &sl OS     &none       &none     &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN 
+                &none      &none      &none     &kp SPACE  &to 0       &bkspdel  &kp ENTER  &none     &none      &none 
             >;
         };
 

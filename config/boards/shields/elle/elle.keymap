@@ -22,7 +22,7 @@
         mosk: moml_1shot_k  { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_K"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; }; 
         mosl: moml_1shot_l  { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; }; 
         motg: mom_toggle_l  { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOGGLE_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tog>; }; 
-        motg: moml_kp       { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
+        mokp: moml_kp       { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
 
         bkspdel: back_del   { compatible = "zmk,behavior-mod-morph"; label = "BACK_DEL";    #binding-cells = <0>; bindings = <&kp BKSP>, <&kp DEL>;      mods = <(MOD_LSFT)>; }; 
     };
@@ -75,9 +75,9 @@
 
         shc {
             bindings = <
-                &none  &kp Z  &kp C  &kp V  &none     &none  &none  &none  &none  &none 
-                &none  &kp Y  &kp X  &none  &none     &none  &none  &none  &none  &none 
-                &none  &none  &none  &none  &to 0     &to 0  &none  &none  &none  &none 
+                &none  &kp Z  &kp C  &kp V  &none           &none  &none  &none  &none  &none 
+                &none  &kp Y  &kp X  &none  &none           &none  &none  &none  &none  &none 
+                &none  &none  &none  &none  &motg NV SC     &to 0  &none  &none  &none  &none 
             >;
         };
 

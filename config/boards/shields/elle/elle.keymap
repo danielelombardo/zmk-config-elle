@@ -75,25 +75,25 @@
 
         shc {
             bindings = <
-                &none  &kp Z  &kp C  &kp V  &none           &none  &none  &none  &none  &none 
-                &none  &kp Y  &kp X  &none  &none           &none  &none  &none  &none  &none 
-                &none  &none  &none  &none  &motg NV SC     &to 0  &none  &none  &none  &none 
+                &none        &kp LC(C)  &kp LG(C)  &kp LG(V)  &none           &none  &none  &none  &none  &none 
+                &kp LA(TAB)  &kp LC(V)  &none      &none      &none           &none  &none  &none  &none  &none 
+                &none        &none      &none      &none      &motg NV SC     &to 0  &none  &none  &none  &none 
             >;
         };
 
         nav {
             bindings = <
                 &sk LSHFT  &sk LCTRL  &sk LGUI  &sk LALT   &none       &none     &kp HOME   &kp UP    &kp END    &kp PG_UP 
-                &kp TAB    &rls_mods  &tog SC   &sl OS     &none       &none     &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN 
+                &kp TAB    &tog SC    &none     &sl OS     &none       &none     &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN 
                 &none      &none      &none     &kp SPACE  &to 0       &bkspdel  &kp ENTER  &none     &none      &none 
             >;
         };
 
         osm {
             bindings = <
-                &to NV     &rls_mods  &kp CAPS  &caps_word  &none      &none  &sl NU   &mosl SY SY  &to NU     &to BT 
-                &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT    &none      &none  &kp INS  &kp SPACE    &kp PSCRN  &to FU 
-                &none      &none      &none     &kp ESC     &kp TAB    &to 0  &none    &none  &none   &none 
+                &kt LSHFT   &kt LCTRL  &kt LGUI   &kt LALT  &none      &none  &sl NU   &mosl SY SY  &to NU     &to BT 
+                &caps_word  &rls_mods  &kp CAPS   &to NV    &none      &none  &kp INS  &kp SPACE    &kp PSCRN  &to FU 
+                &none       &none      &none      &kp ESC   &kp TAB    &to 0  &none    &none  &none   &none 
             >;
         };
 

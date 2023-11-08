@@ -34,17 +34,17 @@
           compatible = "zmk,keymap";
         abc1 {
             bindings = <
-                &kp F  &kp A  &kp E  &kp T        &none         &none         &kp N  &kp I  &kp O  &kp L 
-                &kp W  &kp S  &kp D  &kp R        &none         &none         &kp H  &kp U  &kp M  &kp C 
+                &kp F  &kp A  &kp E  &kp R        &none         &none         &kp U  &kp I  &kp O  &kp L 
+                &kp W  &kp S  &kp D  &kp T        &none         &none         &kp N  &kp H  &kp M  &kp C 
                 &none  &none  &none  &key_repeat  &mosl NV A2   &lt OS SPACE  &sk LSHFT  &none  &none  &none 
             >;
         };
 
         abc2 {
             bindings = <
-                &kp Z    &kp G    &kp Y  &kp V      &none          &none      &kp B      &kp P     &kp K      &kp J 
-                &kp SQT  &kp DQT  &kp Q  &kp X      &none          &none      &kp COLON  &kp SEMI  &kp SLASH  &kp QMARK
-                &none    &none    &none  &kp MINUS  &motg NV A2    &kp COMMA  &kp DOT    &none     &none      &none 
+                &kp Z    &kp V    &kp Y      &kp X      &none          &none      &kp B    &kp P     &kp K      &kp Q 
+                &kp SQT  &kp DQT  &kp MINUS  &kp G      &none          &none      &kp J    &kp SEMI  &kp COLON  &kp QMARK 
+                &none    &none    &none      &kp SLASH  &motg NV A2    &kp COMMA  &kp DOT  &none     &none      &none 
             >;
         };
 

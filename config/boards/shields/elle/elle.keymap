@@ -35,8 +35,8 @@
           compatible = "zmk,keymap";
         abc1 {
             bindings = <
-                &kp A  &kp S  &kp E  &kp R        &none         &none         &kp U  &kp I  &kp O  &kp L 
-                &kp F  &kp W  &kp D  &kp T        &none         &none         &kp N  &kp M  &kp H  &kp C 
+                &kp F  &kp S  &kp E  &kp R        &none         &none         &kp U  &kp I  &kp O  &kp L 
+                &kp A  &kp W  &kp D  &kp T        &none         &none         &kp N  &kp M  &kp H  &kp C 
                 &none  &none  &none  &key_repeat  &mosl NV A2   &lt OS SPACE  &sk LSHFT  &none  &none  &none 
             >;
         };

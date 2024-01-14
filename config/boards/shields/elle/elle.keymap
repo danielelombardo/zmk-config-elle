@@ -97,9 +97,9 @@
 
         mou {
             bindings = <
-                &trans  &trans  &trans  &trans  &trans      &trans     &mwh SCR_L  &mmv MOV_U  &mwh SCR_R  &mwh SCR_U 
+                &trans  &trans  &trans  &trans  &trans      &tog_nm    &mwh SCR_L  &mmv MOV_U  &mwh SCR_R  &mwh SCR_U 
                 &trans  &trans  &trans  &trans  &trans      &kp K_APP  &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_D 
-                &trans  &trans  &trans  &trans  &tog MU     &mkp LCLK  &mkp RCLK   &trans      &trans      &trans
+                &trans  &trans  &trans  &trans  &tog_nm     &mkp LCLK  &mkp RCLK   &trans      &trans      &trans
             >;
         };
 

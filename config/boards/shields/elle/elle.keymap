@@ -11,8 +11,8 @@
 #define AZ  0
 #define NU  1
 #define FU  2
-#define MU  3
-#define NV  4
+#define NV  3
+#define MU  4
 #define SY  5
 
 #define ASH(l) &tkp LS(l) l

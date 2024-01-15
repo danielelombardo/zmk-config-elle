@@ -41,7 +41,7 @@
 #define SCR_L SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 #define SCR_R SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 
-&mmv { acceleration-exponent=<2>; time-to-max-speed-ms = <1300>;};
+&mmv { acceleration-exponent=<1>; time-to-max-speed-ms = <1300>;};
 &mwh { acceleration-exponent=<0>; time-to-max-speed-ms = <1500>;};
 
 / { 
@@ -49,9 +49,9 @@
         rls_mods: rls_mods { compatible = "zmk,behavior-macro"; label = "ZM_rls_mods"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>; };
         tog_nm:   tog_nm   { compatible = "zmk,behavior-macro"; label = "ZM_tog_nm"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &tog NV &tog MU>; };
-        to_spc:   to_spc   { compatible = "zmk,behavior-macro"; label = "ZM_to_spc"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &to 0 &kp SPACE>; };
+            bindings = <&macro_tap &kp LSHFT &tog NV &tog MU>; };
+        togl:     togl     { compatible = "zmk,behavior-macro"; label = "ZM_togl";   #binding-cells = <1>; wait-ms = <5>; tap-ms = <15>;
+            bindings = <&macro_param_1to1>, <&macro_tap &kp LSHFT &tog MACRO_PLACEHOLDER>; };
     };
 
     behaviors {
@@ -68,9 +68,9 @@
         compatible = "zmk,keymap";
         abc {
             bindings = <
-                ASH(W)  ASH(C)  ASH(H)  ASH(M)  ASH(Q)        &key_repeat     ASH(U)  ASH(I)  ASH(O)  ASH(Y) 
+                ASH(W)  ASH(C)  ASH(H)  ASH(M)  ASH(Q)        &key_repeat     ASH(U)  ASH(I)  ASH(O)  ASH(J) 
                 ASH(D)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)        &kp BKSP        ASH(N)  ASH(E)  ASH(A)  ASH(L) 
-                ASL(F)  ASL(G)  ASL(X)  ASL(V)  &mosl NV SM   &mokp NU SPACE  ASL(K)  ASL(J)  ASL(B)  ASL(P) 
+                ASL(F)  ASL(G)  ASL(X)  ASL(V)  &mosl NV SM   &mokp NU SPACE  ASL(P)  ASL(Y)  ASL(K)  ASL(B) 
             >;
         };
 
@@ -78,7 +78,7 @@
             bindings = <
                 &none  ASH(N6)  ASH(N5)  ASH(N4)  &none     &trans  ASH(N0)  &caps_word  &kp CAPS  &none 
                 &none  ASH(N3)  ASH(N2)  ASH(N1)  &none     &trans  ASH(N7)  ASH(N8)     ASH(N9)   &none 
-                &none  &none    &none    &none    &trans    &to_spc &none    &none       &none     &none 
+                &none  &none    &none    &none    &trans    &to 0   &none    &none       &none     &none 
             >;
         };
 
@@ -102,21 +102,21 @@
             bindings = <
                 &trans  &trans  &trans  &trans  &trans     &trans     &mwh SCR_L  &mmv MOV_U  &mwh SCR_R  &mwh SCR_U 
                 &trans  &trans  &trans  &trans  &trans     &trans     &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_D 
-                &trans  &trans  &trans  &trans  &trans     &mkp LCLK  &mkp RCLK   &trans      &kp K_APP   &tog_nm
+                &trans  &trans  &trans  &trans  &trans     &mkp LCLK  &mkp RCLK   &trans      &kp K_APP   &to 0
             >;
         };
 
         sys {
             bindings = <
-                &none  &none  &none  &none  &none       &none  &kp C_BRI_DN  &kp C_BRI_UP  &none       &none 
-                BT(3)  BT(2)  BT(1)  BT(0)  &bt BT_CLR  &none  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &none 
+                &none  &none  &none  &none  &none       &none  &kp C_BRI_DN  &none       &kp C_BRI_UP  &none 
+                BT(3)  BT(2)  BT(1)  BT(0)  &bt BT_CLR  &none  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &none 
                 &none  &none  &none  &none  &trans      &to 0  &none  &none  &none  &none 
            >;
         };
 
         sym {
             bindings = <
-                &tog SY   &tog NV    &tog FU   &tog NU    &none        &trans     ASH(MINUS) ASH(EQUAL) ASH(SLASH) ASH(GRAVE) 
+                &togl SY  &togl NV   &togl FU  &togl NU   &none        &trans     ASH(MINUS) ASH(EQUAL) ASH(SLASH) ASH(GRAVE) 
                 &kt LALT  &kt LCTRL  &kt LGUI  &kt LSHFT  &kp ENTER    &trans     ASH(SQT)   ASH(SEMI)  ASH(DOT)   ASH(LBKT) 
                 &rls_mods &none      &none     &none      &tog_nm      ASH(COMMA) &none      &none      ASL(BSLH)  ASL(RBKT)
             >;

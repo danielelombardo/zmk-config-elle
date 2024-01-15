@@ -14,12 +14,13 @@
 #define NV  3
 #define MU  4
 #define SY  5
+#define SM  6
 
 #define ASH(l) &tkp LS(l) l
 #define BT(d) &bt BT_SEL d
 #define COPYPASTE &tkp LG(C) LG(V)
 
-#define U_MOUSE_MOVE_MAX 1200 /* max speed. default is 600 */
+#define U_MOUSE_MOVE_MAX 1100 /* max speed. default is 600 */
 #undef MOVE_UP
 #undef MOVE_DOWN
 #undef MOVE_LEFT
@@ -39,8 +40,8 @@
 #define SCR_L SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 #define SCR_R SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 
-&mmv { acceleration-exponent=<2>; time-to-max-speed-ms = <1000>;};
-&mwh { acceleration-exponent=<1>; time-to-max-speed-ms = <1500>;};
+&mmv { acceleration-exponent=<2>; time-to-max-speed-ms = <1300>;};
+&mwh { acceleration-exponent=<0>; time-to-max-speed-ms = <1500>;};
 
 / { 
     macros {
@@ -56,7 +57,6 @@
         mokp: moml_kp      { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
         moto: mom_tog_l    { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOG_L";    #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tog>; }; 
         tkp:  two_kp       { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP";       #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&kp>; }; 
-        mokr: mom_key_rep  { compatible = "zmk,behavior-hold-tap"; label = "MOM_KEY_REP";  #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&key_repeat>; }; 
 
         bkspdel: back_del  { compatible = "zmk,behavior-mod-morph"; label = "BACK_DEL";   #binding-cells = <0>; bindings = <&kp BKSP>, <&kp DEL>; mods = <(MOD_LSFT)>; }; 
     };
@@ -65,51 +65,59 @@
         compatible = "zmk,keymap";
         abc {
             bindings = <
-                ASH(W)  ASH(C)  ASH(H)  ASH(M)  ASH(Q)         &tog_nm         ASH(U)  ASH(I)  ASH(O)  ASH(Y) 
-                ASH(D)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)         &bkspdel        ASH(N)  ASH(E)  ASH(A)  ASH(L) 
-                ASH(F)  ASH(G)  ASH(X)  ASH(V)  &mokr NV 0     &mokp NU SPACE  ASH(K)  ASH(J)  ASH(B)  ASH(P) 
+                ASH(W)  ASH(C)  ASH(H)  ASH(M)  ASH(Q)        &key_repeat     ASH(U)  ASH(I)  ASH(O)  ASH(Y) 
+                ASH(D)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)        &bkspdel        ASH(N)  ASH(E)  ASH(A)  ASH(L) 
+                ASH(F)  ASH(G)  ASH(X)  ASH(V)  &mosl NV SM   &mokp NU SPACE  ASH(K)  ASH(J)  ASH(B)  ASH(P) 
             >;
         };
 
         num {
             bindings = <
-                ASH(SEMI)   ASH(N6)   ASH(N5)  ASH(N4)  &caps_word  &kp CAPS  ASH(MINUS)  ASH(EQUAL)  ASH(N0)    ASH(RBKT) 
-                ASH(SQT)    ASH(N3)   ASH(N2)  ASH(N1)  &none       &none     ASH(N7)     ASH(N8)     ASH(N9)    ASH(LBKT) 
-                ASH(COMMA)  ASH(DOT)  &none    &tog NV  &trans      &tog NU   ASH(GRAVE)  &none       ASH(BSLH)  ASH(SLASH)
+                &none  ASH(N6)  ASH(N5)  ASH(N4)  &none     &trans  ASH(N0)  &caps_word  &kp CAPS  &none 
+                &none  ASH(N3)  ASH(N2)  ASH(N1)  &none     &trans  ASH(N7)  ASH(N8)     ASH(N9)   &none 
+                &none  &none    &none    &none    &trans    &to 0   &none    &none       &none     &none 
             >;
         };
 
         fun {
             bindings = <
-                &none  &kp F4  &kp F5  &kp F6  &none      &none    &kp F10  &kp F11  &kp F12  &none 
-                &none  &kp F1  &kp F2  &kp F3  &none      &none    &kp F7   &kp F8   &kp F9   &none 
-                &none  &none   &none   &none   &trans     &tog FU  &none    &none    &none    &none 
+                &none  &kp F4  &kp F5  &kp F6  &none      &none  &kp F10  &kp F11  &kp F12  &none 
+                &none  &kp F1  &kp F2  &kp F3  &none      &none  &kp F7   &kp F8   &kp F9   &none 
+                &none  &none   &none   &none   &trans     &to 0  &none    &none    &none    &none 
             >;
         };
 
         nav {
             bindings = <
-                &kp PSCRN  &kp ESC    &kp SPACE  &kp TAB    &trans      &kp PG_UP  &kp HOME   &kp UP    &kp END    &kp INS 
-                &sk LALT   &sk LCTRL  &sk LGUI   &sk LSHFT  &trans      &kp PG_DN  &kp LEFT   &kp DOWN  &kp RIGHT  &kp ENTER 
-                &rls_mods  COPYPASTE  &trans     &sl SY     &tog NV     &tog NU    &tog FU    &none     &tog SY    &bkspdel
+                &kp PSCRN  &kp ESC    &kp SPACE  &kp TAB    &none     &trans  &kp HOME  &kp UP   &kp END    &kp INS 
+                &sk LALT   &sk LCTRL  &sk LGUI   &sk LSHFT  &none     &trans  &kp LEFT  &kp DOWN &kp RIGHT  &kp ENTER 
+                &rls_mods  COPYPASTE  &trans     &trans     &trans    &to 0   &kp PG_UP &none    &kp PG_DN  &bkspdel 
             >;
         };
 
         mou {
             bindings = <
-                &trans  &trans  &trans  &trans  &trans      &tog_nm    &mwh SCR_L  &mmv MOV_U  &mwh SCR_R  &mwh SCR_U 
-                &trans  &trans  &trans  &trans  &trans      &kp K_APP  &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_D 
-                &trans  &trans  &trans  &trans  &tog_nm     &mkp LCLK  &mkp RCLK   &trans      &trans      &trans
+                &trans  &trans  &trans  &trans  &trans     &tog_nm    &mwh SCR_L  &mmv MOV_U  &mwh SCR_R  &mwh SCR_U 
+                &trans  &trans  &trans  &trans  &trans     &trans     &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_D 
+                &trans  &trans  &trans  &trans  &trans     &mkp LCLK  &mkp RCLK   &trans      &kp K_APP   &tog_nm
             >;
+        };
+
+        sys {
+            bindings = <
+                &none  &none  &none  &none  &none       &none  &kp C_BRI_DN  &kp C_BRI_UP  &none       &none 
+                BT(3)  BT(2)  BT(1)  BT(0)  &bt BT_CLR  &none  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &none 
+                &none  &none  &none  &none  &trans      &to 0  &none  &none  &none  &none 
+           >;
         };
 
         sym {
             bindings = <
-                &trans    &trans     &trans    &trans     &trans     &none       &kp C_BRI_DN  &kp C_BRI_UP  &none       &none 
-                &kt LALT  &kt LCTRL  &kt LGUI  &kt LSHFT  &trans     &bt BT_CLR  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &none 
-                &trans    &trans     &trans    &trans     &tog SY    &tog SY     BT(0)  BT(1)  BT(2)  BT(3) 
-
-           >;
+                &tog SY   &tog NV    &tog FU   &tog NU    &none        &trans     ASH(MINUS) ASH(EQUAL) ASH(SLASH) ASH(GRAVE) 
+                &kt LALT  &kt LCTRL  &kt LGUI  &kt LSHFT  &kp ENTER    &trans     ASH(SQT)   ASH(SEMI)  ASH(DOT)   ASH(LBKT) 
+                &none     &none      &none     &none      &tog_nm      ASH(COMMA) &none      &none      ASH(BSLH)  ASH(RBKT)
+            >;
         };
+
     };
 };

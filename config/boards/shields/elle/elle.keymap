@@ -49,7 +49,7 @@
         rls_mods: rls_mods { compatible = "zmk,behavior-macro"; label = "ZM_rls_mods"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>; };
         tog_nm:   tog_nm   { compatible = "zmk,behavior-macro"; label = "ZM_tog_nm"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &kp LSHFT &tog NV &tog MU>; };
+            bindings = <&macro_tap &kp LSHFT &to NV &tog MU>; };
         togl:     togl     { compatible = "zmk,behavior-macro"; label = "ZM_togl";   #binding-cells = <1>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_param_1to1>, <&macro_tap &kp LSHFT &tog MACRO_PLACEHOLDER>; };
     };

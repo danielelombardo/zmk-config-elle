@@ -36,10 +36,10 @@
 #undef SCROLL_DOWN
 #undef SCROLL_LEFT
 #undef SCROLL_RIGHT
-#define SCR_U SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
-#define SCR_D SCROLL_VERT(U_MOUSE_SCROLL_MAX)
-#define SCR_L SCROLL_HOR(U_MOUSE_SCROLL_MAX)
-#define SCR_R SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
+#define SCR_U SCROLL_VERT(U_MOUSE_SCROLL_MAX)
+#define SCR_D SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
+#define SCR_L SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
+#define SCR_R SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
 &mmv { acceleration-exponent=<1>; time-to-max-speed-ms = <1300>;};
 &mwh { acceleration-exponent=<0>; time-to-max-speed-ms = <1500>;};
@@ -106,8 +106,8 @@
 
         mou {
             bindings = <
-                &trans  &trans  &trans  &trans  &trans     &trans     &mwh SCR_L  &mmv MOV_U  &mwh SCR_R  &mwh SCR_U 
-                &trans  &trans  &trans  &trans  &trans     &trans     &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_D 
+                &trans  &trans  &trans  &trans  &trans     &trans     &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  &mwh SCR_D 
+                &trans  &trans  &trans  &trans  &trans     &trans     &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_U 
                 &trans  &trans  &trans  &trans  &trans     &mkp LCLK  &mkp RCLK   &trans      &kp K_APP   &to 0
             >;
         };

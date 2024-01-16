@@ -98,9 +98,9 @@
 
         nav {
             bindings = <
-                &kp PSCRN  &kp ESC    &kp SPACE  &kp TAB    &none     &trans  &kp HOME  &kp UP   &kp END    &kp INS 
-                &sk LALT   &sk LCTRL  &sk LGUI   &sk LSHFT  &none     &trans  &kp LEFT  &kp DOWN &kp RIGHT  &kp ENTER 
-                &rls_mods  COPYPASTE  &trans     &trans     &trans    &to 0   &kp PG_UP &none    &kp PG_DN  &kp DEL 
+                &kp PSCRN  &kp ESC    &sk LSHFT  &kp TAB   &trans    &trans  &kp HOME  &kp UP   &kp END    &kp INS 
+                &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &trans    &trans  &kp LEFT  &kp DOWN &kp RIGHT  &kp ENTER 
+                &kp SPACE  COPYPASTE  &trans     &trans    &trans    &to 0   &kp PG_UP &none    &kp PG_DN  &kp DEL 
             >;
         };
 
@@ -122,9 +122,9 @@
 
         sym {
             bindings = <
-                &tog5     &tog3      &tog2     &tog1      &none        &trans     ASH(MINUS) ASH(EQUAL) ASH(SLASH) ASH(GRAVE) 
-                &kt LALT  &kt LCTRL  &kt LGUI  &kt LSHFT  &kp ENTER    &trans     ASH(SQT)   ASH(SEMI)  ASH(DOT)   ASH(LBKT) 
-                &rls_mods &none      &none     &none      &tog_nm      ASH(COMMA) &none      &none      ASL(BSLH)  ASL(RBKT)
+                &tog5      &tog3      &kt LSHFT  &tog1     &tog2        &trans     ASH(MINUS) ASH(EQUAL) ASH(SLASH) ASH(GRAVE) 
+                &rls_mods  &kt LCTRL  &kt LGUI   &kt LALT  &kp ENTER    &trans     ASH(SQT)   ASH(SEMI)  ASH(DOT)   ASH(LBKT) 
+                &none      &none      &none      &none     &tog_nm      ASH(COMMA) &none      &none      ASL(BSLH)  ASL(RBKT)
             >;
         };
 

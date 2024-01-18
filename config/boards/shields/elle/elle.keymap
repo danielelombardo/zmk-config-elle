@@ -82,7 +82,7 @@
             bindings = <
                 ASH(W)  ASH(C)  ASH(H)  ASH(M)  ASH(Q)        &key_repeat     ASH(U)  ASH(I)  ASH(O)  ASH(J) 
                 ASH(D)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)        &kp BKSP        ASH(N)  ASH(E)  ASH(A)  ASH(L) 
-                ASL(F)  ASL(G)  ASL(X)  ASL(V)  &mosl NV SM   &mokp NU SPACE  ASL(P)  ASL(Y)  ASL(K)  ASL(B) 
+                ASL(F)  ASL(G)  ASL(X)  ASL(V)  &mosl NV SY   &mokp NU SPACE  ASL(P)  ASL(Y)  ASL(K)  ASL(B) 
             >;
         };
 

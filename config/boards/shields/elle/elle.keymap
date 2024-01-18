@@ -49,7 +49,7 @@
         rls_mods: rls_mods { compatible = "zmk,behavior-macro"; label = "ZM_rls_mods"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>; };
         tog_nm:   tog_nm   { compatible = "zmk,behavior-macro"; label = "ZM_tog_nm"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &kp LSHFT &to NV &tog MU>; };
+            bindings = <&macro_tap &to NV &tog MU>; };
         tog1:     tog1     { compatible = "zmk,behavior-macro"; label = "ZM_tog1";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_tap &kp LSHFT &tog 1>; };
         tog2:     tog2     { compatible = "zmk,behavior-macro"; label = "ZM_tog2";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
@@ -68,6 +68,13 @@
         
         moto: mom_tog_l    { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOG_L";    #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tog>; }; 
         tosl: togl_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "TOGL_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&tog>, <&sl>; }; 
+    };
+ 
+    combos {
+        compatible = "zmk,combos";
+        combo_mou { timeout-ms = <50>; key-positions = <22 23>; bindings = <&tog_nm>; };
+        combo_nav { timeout-ms = <50>; key-positions = <21 22>; bindings = <&tog NV>; };
+        combo_sys { timeout-ms = <50>; key-positions = <21 23>; bindings = <&tog SY>; };
     };
  
     keymap {
@@ -108,7 +115,7 @@
             bindings = <
                 &trans  &trans  &trans  &trans  &trans     &trans    &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  &mwh SCR_D 
                 &trans  &trans  &trans  &trans  &trans     &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_U 
-                &trans  &trans  &trans  &trans  &none      &mkp LCLK &mkp RCLK   &trans      &kp K_APP   &to 0
+                &trans  &trans  &trans  &trans  &trans     &mkp LCLK &mkp RCLK   &trans      &kp K_APP   &to 0
             >;
         };
 

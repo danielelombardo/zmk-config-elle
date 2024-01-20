@@ -117,7 +117,7 @@
             bindings = <
                 &trans     &kp ESC    &sk LSHFT  &kp TAB   &trans    &trans  &kp HOME  &kp UP    &kp END    &kp INS 
                 &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &trans    &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp ENTER 
-                &kp SPACE  COPYPASTE  &trans     &trans    &trans    &to 0   &kp PG_UP &gui_tab  &kp PG_DN  &kp DEL 
+                &kp SPACE  COPYPASTE  &trans     &trans    &trans    &to 0   &kp PG_UP &guitab   &kp PG_DN  &kp DEL 
             >;
         };
 

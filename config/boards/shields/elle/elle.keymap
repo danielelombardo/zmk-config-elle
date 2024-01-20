@@ -40,7 +40,7 @@
 #define SCR_L SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 #define SCR_R SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
-&mmv { acceleration-exponent=<1>; time-to-max-speed-ms = <1300>;};
+&mmv { acceleration-exponent=<0>; time-to-max-speed-ms = <1300>;};
 &mwh { acceleration-exponent=<0>; time-to-max-speed-ms = <1500>;};
 
 / { 
@@ -65,8 +65,11 @@
         
         moto: mom_tog_l    { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOG_L";    #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tog>; }; 
         tosl: togl_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "TOGL_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&tog>, <&sl>; }; 
+
+        guitab: gui_tab    { compatible = "zmk,behavior-mod-morph"; label = "GUI_TAB"; #binding-cells = <0>; 
+            bindings = <&kt LGUI>, <&kp TAB>; mods = <(MOD_LGUI)>; };
     };
- 
+
     combos {
         compatible = "zmk,combos";
         combo_num { timeout-ms = <50>; key-positions = <11 12>; bindings = <&to NU>; };
@@ -104,23 +107,23 @@
 
         mou {
             bindings = <
-                &bt BT_CLR  &kp C_BRI_DN  &none       &kp C_BRI_UP  &trans     &trans    &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  &mwh SCR_D 
-                &none       &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &trans     &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_U 
-                BT(3)       BT(2)         BT(1)       BT(0)         &trans     &mkp LCLK &mkp RCLK   &trans      &kp K_APP   &to 0
+                &none  &kp C_BRI_DN  &none       &kp C_BRI_UP  &bt BT_CLR   &trans    &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  &mwh SCR_D 
+                &none  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &trans       &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_U 
+                BT(3)  BT(2)         BT(1)       BT(0)         &trans       &mkp LCLK &mkp RCLK   &trans      &kp K_APP   &to 0
             >;
         };
 
         nav { 
             bindings = <
-                &trans     &kp ESC    &sk LSHFT  &kp TAB   &trans    &trans  &kp HOME  &kp UP   &kp END    &kp INS 
-                &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &trans    &trans  &kp LEFT  &kp DOWN &kp RIGHT  &kp ENTER 
-                &kp SPACE  COPYPASTE  &trans     &trans    &trans    &to 0   &kp PG_UP &none    &kp PG_DN  &kp DEL 
+                &trans     &kp ESC    &sk LSHFT  &kp TAB   &trans    &trans  &kp HOME  &kp UP    &kp END    &kp INS 
+                &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &trans    &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp ENTER 
+                &kp SPACE  COPYPASTE  &trans     &trans    &trans    &to 0   &kp PG_UP &gui_tab  &kp PG_DN  &kp DEL 
             >;
         };
 
         sym {
             bindings = <
-                &none      &tog4      &kt LSHFT  &tog3     &none     &trans     ASH(MINUS) ASH(EQUAL) ASH(SLASH) ASH(GRAVE) 
+                &none      &tog4      &kt LSHFT  &tog3     &trans    &trans     ASH(MINUS) ASH(EQUAL) ASH(SLASH) ASH(GRAVE) 
                 &rls_mods  &kt LCTRL  &kt LGUI   &kt LALT  &trans    &trans     ASH(SQT)   ASH(SEMI)  ASH(DOT)   ASH(LBKT) 
                 &kp PSCRN  &tog1      &none      &tog2     &to 0     ASH(COMMA) &kp ENTER  &none      ASL(BSLH)  ASL(RBKT)
             >;

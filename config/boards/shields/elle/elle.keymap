@@ -56,12 +56,12 @@
     };
 
     behaviors {
-        tosl: togl_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "TOGL_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&tog>, <&sl>; }; 
+        moto: mom_tog_l    { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOG_L";    #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tog>; }; 
         mokp: moml_kp      { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
         tkp:  two_kp       { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP";       #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&kp>; }; 
         
-        moto: mom_tog_l    { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOG_L";    #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tog>; }; 
         mosl: moml_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; }; 
+        tosl: togl_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "TOGL_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&tog>, <&sl>; }; 
 
         guitab: gui_tab    { compatible = "zmk,behavior-mod-morph"; label = "GUI_TAB"; #binding-cells = <0>; 
             bindings = <&kt LGUI>, <&kp TAB>; mods = <(MOD_LGUI)>; };
@@ -82,7 +82,7 @@
             bindings = <
                 ASH(W)  ASH(C)  ASH(H)  ASH(M)  ASH(Q)        &key_repeat     ASH(U)  ASH(I)  ASH(O)  ASH(J) 
                 ASH(D)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)        &kp BKSP        ASH(N)  ASH(E)  ASH(A)  ASH(L) 
-                ASH(F)  ASH(G)  ASH(X)  ASH(V)  &tosl NV MU   &mokp NU SPACE  ASH(P)  ASH(Y)  ASH(K)  ASH(B) 
+                ASH(F)  ASH(G)  ASH(X)  ASH(V)  &moto NV MU   &mokp NU SPACE  ASH(P)  ASH(Y)  ASH(K)  ASH(B) 
             >;
         };
 
@@ -104,9 +104,9 @@
 
         mou {
             bindings = <
-                &none      &tog4      &kt LSHFT  &tog3     &trans    &trans    &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  &mwh SCR_D 
-                &rls_mods  &kt LCTRL  &kt LGUI   &kt LALT  &trans    &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_U 
-                &kp PSCRN  &tog1      &none      &tog2     &to 0     &mkp LCLK &mkp RCLK   &trans      &kp K_APP   &to 0 
+                &none      &tog4      &kt LSHFT  &tog3     &none    &trans    &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  &mwh SCR_D 
+                &rls_mods  &kt LCTRL  &kt LGUI   &kt LALT  &none    &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_U 
+                &kp PSCRN  &tog1      &none      &tog2     &to 0    &mkp LCLK &mkp RCLK   &trans      &kp K_APP   &to 0 
             >;
         };
 

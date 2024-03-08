@@ -13,10 +13,8 @@
 #define FU  2
 #define MU  3
 #define NV  4
-#define SY  5
 
 #define ASH(l) &tkp LS(l) l
-#define ASL(l) &tkps LS(l) l
 #define BT(d) &bt BT_SEL d
 #define COPYPASTE &tkp LG(C) LG(V)
 
@@ -48,23 +46,22 @@
         rls_mods: rls_mods { compatible = "zmk,behavior-macro"; label = "ZM_rls_mods"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>; };
         tog1:     tog1     { compatible = "zmk,behavior-macro"; label = "ZM_tog1";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &kp LSHFT &tog 1>; };
+            bindings = <&macro_tap &kp LSHFT &to 1>; };
         tog2:     tog2     { compatible = "zmk,behavior-macro"; label = "ZM_tog2";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &kp LSHFT &tog 2>; };
+            bindings = <&macro_tap &kp LSHFT &to 2>; };
         tog3:     tog3     { compatible = "zmk,behavior-macro"; label = "ZM_tog3";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &kp LSHFT &tog 3>; };
+            bindings = <&macro_tap &kp LSHFT &to 3>; };
         tog4:     tog4     { compatible = "zmk,behavior-macro"; label = "ZM_tog4";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &kp LSHFT &tog 4>; };
+            bindings = <&macro_tap &kp LSHFT &to 4>; };
     };
 
     behaviors {
-        mosl: moml_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; }; 
+        tosl: togl_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "TOGL_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&tog>, <&sl>; }; 
         mokp: moml_kp      { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
         tkp:  two_kp       { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP";       #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&kp>; }; 
-        tkps: two_kp_slow  { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP_SLOW";  #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <300>; bindings = <&kp>, <&kp>; }; 
         
         moto: mom_tog_l    { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOG_L";    #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tog>; }; 
-        tosl: togl_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "TOGL_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&tog>, <&sl>; }; 
+        mosl: moml_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; }; 
 
         guitab: gui_tab    { compatible = "zmk,behavior-mod-morph"; label = "GUI_TAB"; #binding-cells = <0>; 
             bindings = <&kt LGUI>, <&kp TAB>; mods = <(MOD_LGUI)>; };
@@ -72,8 +69,8 @@
 
     combos {
         compatible = "zmk,combos";
-        combo_num { timeout-ms = <50>; key-positions = <11 12>; bindings = <&to NU>; };
-        combo_fun { timeout-ms = <50>; key-positions = <12 13>; bindings = <&to FU>; };
+        combo_num { timeout-ms = <50>; key-positions = <11 12>; bindings = <&to FU>; };
+        combo_fun { timeout-ms = <50>; key-positions = <12 13>; bindings = <&to NU>; };
         combo_mou { timeout-ms = <50>; key-positions = <16 17>; bindings = <&to MU>; };
         combo_nav { timeout-ms = <50>; key-positions = <17 18>; bindings = <&to NV>; };
         combo_zero { timeout-ms = <50>; key-positions = <16 18>; bindings = <&to 0>; };
@@ -85,31 +82,31 @@
             bindings = <
                 ASH(W)  ASH(C)  ASH(H)  ASH(M)  ASH(Q)        &key_repeat     ASH(U)  ASH(I)  ASH(O)  ASH(J) 
                 ASH(D)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)        &kp BKSP        ASH(N)  ASH(E)  ASH(A)  ASH(L) 
-                ASL(F)  ASL(G)  ASL(X)  ASL(V)  &mosl NV SY   &mokp NU SPACE  ASL(P)  ASL(Y)  ASL(K)  ASL(B) 
+                ASH(F)  ASH(G)  ASH(X)  ASH(V)  &tosl NV MU   &mokp NU SPACE  ASH(P)  ASH(Y)  ASH(K)  ASH(B) 
             >;
         };
 
         num {
             bindings = <
-                &none  ASH(N6)  ASH(N5)  ASH(N4)  &none     &trans  ASH(N0)  &caps_word  &kp CAPS  &none 
-                &none  ASH(N3)  ASH(N2)  ASH(N1)  &none     &trans  ASH(N7)  ASH(N8)     ASH(N9)   &none 
-                &none  &none    &none    &none    &trans    &to 0   &none    &none       &none     &none 
+                ASH(GRAVE)  ASH(SLASH) ASH(EQUAL) ASH(MINUS) ASH(BSLH)     &trans  ASH(N7)  ASH(N8)  ASH(N9)  &none 
+                ASH(COMMA)  ASH(DOT)   ASH(SEMI)  ASH(SQT)   &none         &trans  ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
+                ASH(LBKT)   ASH(RBKT)  &kp CAPS   &caps_word &trans        &to 0   ASH(N1)  ASH(N2)  ASH(N3)  &none 
             >;
         };
 
         fun {
             bindings = <
-                &none  &kp F4  &kp F5  &kp F6  &none      &trans  &kp F10  &kp F11  &kp F12  &none 
-                &none  &kp F1  &kp F2  &kp F3  &none      &trans  &kp F7   &kp F8   &kp F9   &none 
-                &none  &none   &none   &none   &trans     &to 0   &none    &none    &none    &none 
+                &kp C_BRI_UP  &kp C_VOL_UP BT(1)  BT(0)  &none       &trans  &kp F7  &kp F8  &kp F9  &kp F10 
+                &kp C_BRI_DN  &kp C_VOL_DN BT(3)  BT(2)  &bt BT_CLR  &trans  &kp F4  &kp F5  &kp F6  &kp F11 
+                &none         &kp C_MUTE   &none  &none  &trans      &to 0   &kp F1  &kp F2  &kp F3  &kp F12 
             >;
         };
 
         mou {
             bindings = <
-                &none  &kp C_BRI_DN  &none       &kp C_BRI_UP  &bt BT_CLR   &trans    &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  &mwh SCR_D 
-                &none  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &trans       &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_U 
-                BT(3)  BT(2)         BT(1)       BT(0)         &trans       &mkp LCLK &mkp RCLK   &trans      &kp K_APP   &to 0
+                &none      &tog4      &kt LSHFT  &tog3     &trans    &trans    &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  &mwh SCR_D 
+                &rls_mods  &kt LCTRL  &kt LGUI   &kt LALT  &trans    &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_U 
+                &kp PSCRN  &tog1      &none      &tog2     &to 0     &mkp LCKLK &mkp RCLK   &trans      &kp K_APP   &to 0 
             >;
         };
 
@@ -118,14 +115,6 @@
                 &trans     &kp ESC    &sk LSHFT  &kp TAB   &trans    &trans  &kp HOME  &kp UP    &kp END    &kp INS 
                 &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &trans    &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp ENTER 
                 &kp SPACE  COPYPASTE  &trans     &trans    &trans    &to 0   &kp PG_UP &guitab   &kp PG_DN  &kp DEL 
-            >;
-        };
-
-        sym {
-            bindings = <
-                &none      &tog4      &kt LSHFT  &tog3     &trans    &trans     ASH(MINUS) ASH(EQUAL) ASH(SLASH) ASH(GRAVE) 
-                &rls_mods  &kt LCTRL  &kt LGUI   &kt LALT  &trans    &trans     ASH(SQT)   ASH(SEMI)  ASH(DOT)   ASH(LBKT) 
-                &kp PSCRN  &tog1      &none      &tog2     &to 0     ASH(COMMA) &kp ENTER  &none      ASL(BSLH)  ASL(RBKT)
             >;
         };
 

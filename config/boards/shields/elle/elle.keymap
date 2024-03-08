@@ -106,7 +106,7 @@
             bindings = <
                 &none      &tog4      &kt LSHFT  &tog3     &trans    &trans    &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  &mwh SCR_D 
                 &rls_mods  &kt LCTRL  &kt LGUI   &kt LALT  &trans    &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_U 
-                &kp PSCRN  &tog1      &none      &tog2     &to 0     &mkp LCKLK &mkp RCLK   &trans      &kp K_APP   &to 0 
+                &kp PSCRN  &tog1      &none      &tog2     &to 0     &mkp LCLK &mkp RCLK   &trans      &kp K_APP   &to 0 
             >;
         };
 

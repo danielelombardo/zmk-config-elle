@@ -38,7 +38,7 @@
 #define SCR_L SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 #define SCR_R SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
-&mmv { acceleration-exponent=<1>; time-to-max-speed-ms = <1000>;};
+&mmv { acceleration-exponent=<1>; time-to-max-speed-ms = <750>;};
 &mwh { acceleration-exponent=<0>; time-to-max-speed-ms = <1500>;};
 
 / { 
@@ -104,9 +104,9 @@
 
         mou {
             bindings = <
-                &none      &tog4      &kt LSHFT  &tog3     &none    &trans    &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  &mwh SCR_D 
-                &rls_mods  &kt LCTRL  &kt LGUI   &kt LALT  &none    &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_U 
-                &kp PSCRN  &tog1      &none      &tog2     &to 0    &mkp LCLK &mkp RCLK   &trans      &kp K_APP   &to 0 
+                &none     &tog4      &kt LSHFT  &tog3     &kp PSCRN   &trans    &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  &mwh SCR_D 
+                &rls_mods &kt LCTRL  &kt LGUI   &kt LALT  &none       &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_U 
+                &to 0     &tog1      &none      &tog2     &trans      &mkp LCLK &mkp RCLK   &trans      &kp K_APP   &to 0 
             >;
         };
 
@@ -114,7 +114,7 @@
             bindings = <
                 &trans     &kp ESC    &sk LSHFT  &kp TAB   &trans    &trans  &kp HOME  &kp UP    &kp END    &kp INS 
                 &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &trans    &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp ENTER 
-                &kp SPACE  COPYPASTE  &trans     &trans    &trans    &to 0   &kp PG_UP &guitab   &kp PG_DN  &kp DEL 
+                &kp SPACE  COPYPASTE  &trans     &trans    &trans    &kp DEL &kp PG_UP &guitab   &kp PG_DN  &to 0 
             >;
         };
 

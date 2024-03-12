@@ -6,7 +6,6 @@
 &caps_word { continue-list = <MINUS UNDERSCORE BKSP DEL LEFT RIGHT DOT COMMA SEMI SLASH>; };
 &sk { release-after-ms = <3000>; quick-release; ignore-modifiers; };
 &sl { release-after-ms = <1000>; };
-&lt { tapping-term-ms = <200>; };
 
 #define AZ  0
 #define NU  1
@@ -18,7 +17,7 @@
 #define BT(d) &bt BT_SEL d
 #define COPYPASTE &tkp LG(C) LG(V)
 
-#define U_MOUSE_MOVE_MAX 1000 /* max speed. default is 600 */
+#define U_MOUSE_MOVE_MAX 1500 /* max speed. default is 600 */
 #undef MOVE_UP
 #undef MOVE_DOWN
 #undef MOVE_LEFT
@@ -38,7 +37,7 @@
 #define SCR_L SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 #define SCR_R SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
-&mmv { acceleration-exponent=<1>; time-to-max-speed-ms = <750>;};
+&mmv { acceleration-exponent=<2>; time-to-max-speed-ms = <750>;};
 &mwh { acceleration-exponent=<0>; time-to-max-speed-ms = <1500>;};
 
 / { 
@@ -106,7 +105,7 @@
             bindings = <
                 &none     &tog4      &kt LSHFT  &tog3     &kp PSCRN   &trans    &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  &mwh SCR_D 
                 &rls_mods &kt LCTRL  &kt LGUI   &kt LALT  &none       &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_U 
-                &to 0     &tog1      &none      &tog2     &trans      &mkp LCLK &mkp RCLK   &trans      &kp K_APP   &to 0 
+                &to 0     &tog1      &none      &tog2     &trans      &mkp LCLK &mkp RCLK   &trans      &kp K_APP   &guitab 
             >;
         };
 
@@ -114,7 +113,7 @@
             bindings = <
                 &trans     &kp ESC    &sk LSHFT  &kp TAB   &trans    &trans  &kp HOME  &kp UP    &kp END    &kp INS 
                 &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &trans    &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp ENTER 
-                &kp SPACE  COPYPASTE  &trans     &trans    &trans    &kp DEL &kp PG_UP &guitab   &kp PG_DN  &to 0 
+                &kp SPACE  COPYPASTE  &trans     &trans    &trans    &kp DEL &kp PG_UP &none     &kp PG_DN  &to 0 
             >;
         };
 

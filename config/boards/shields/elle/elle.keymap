@@ -44,13 +44,13 @@
     macros {
         rls_mods: rls_mods { compatible = "zmk,behavior-macro"; label = "ZM_rls_mods"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>; };
-        tog1:     tog1     { compatible = "zmk,behavior-macro"; label = "ZM_tog1";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
+        mto1:     mto1     { compatible = "zmk,behavior-macro"; label = "ZM_mto1";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_tap &kp LSHFT &to 1>; };
-        tog2:     tog2     { compatible = "zmk,behavior-macro"; label = "ZM_tog2";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
+        mto2:     mto2     { compatible = "zmk,behavior-macro"; label = "ZM_mto2";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_tap &kp LSHFT &to 2>; };
-        tog3:     tog3     { compatible = "zmk,behavior-macro"; label = "ZM_tog3";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
+        mto3:     mto3     { compatible = "zmk,behavior-macro"; label = "ZM_mto3";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_tap &kp LSHFT &to 3>; };
-        tog4:     tog4     { compatible = "zmk,behavior-macro"; label = "ZM_tog4";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
+        mto4:     mto4     { compatible = "zmk,behavior-macro"; label = "ZM_mto4";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_tap &kp LSHFT &to 4>; };
     };
 
@@ -68,8 +68,8 @@
 
     combos {
         compatible = "zmk,combos";
-        combo_num { timeout-ms = <50>; key-positions = <11 12>; bindings = <&to                 FU>; };
-        combo_fun { timeout-ms = <50>; key-positions = <12 13>; bindings = <&to NU>; };
+        combo_fun { timeout-ms = <50>; key-positions = <11 12>; bindings = <&to FU>; };
+        combo_num { timeout-ms = <50>; key-positions = <12 13>; bindings = <&to NU>; };
         combo_mou { timeout-ms = <50>; key-positions = <16 17>; bindings = <&to MU>; };
         combo_nav { timeout-ms = <50>; key-positions = <17 18>; bindings = <&to NV>; };
         combo_zero { timeout-ms = <50>; key-positions = <16 18>; bindings = <&to 0>; };
@@ -88,24 +88,24 @@
         num {
             bindings = <
                 ASH(GRAVE)  ASH(SLASH) ASH(EQUAL) ASH(MINUS) ASH(BSLH)     &trans  ASH(N7)  ASH(N8)  ASH(N9)  &none 
-                ASH(COMMA)  ASH(DOT)   ASH(SEMI)  ASH(SQT)   &none         &trans  ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
-                ASH(LBKT)   ASH(RBKT)  &kp CAPS   &caps_word &trans        &to 0   ASH(N1)  ASH(N2)  ASH(N3)  &none 
+                ASH(COMMA)  ASH(DOT)   ASH(SEMI)  ASH(SQT)   &none         &trans  ASH(N4)  ASH(N5)  ASH(N6)  &none 
+                ASH(LBKT)   ASH(RBKT)  &kp CAPS   &caps_word &trans        &to 0   ASH(N1)  ASH(N2)  ASH(N3)  ASH(N0) 
             >;
         };
 
         fun {
             bindings = <
-                &kp C_BRI_UP  &kp C_VOL_UP BT(1)  BT(0)  &none       &trans  &kp F7  &kp F8  &kp F9  &kp F10 
+                &kp C_BRI_UP  &kp C_VOL_UP BT(1)  BT(0)  &none       &trans  &kp F7  &kp F8  &kp F9  &kp F12 
                 &kp C_BRI_DN  &kp C_VOL_DN BT(3)  BT(2)  &bt BT_CLR  &trans  &kp F4  &kp F5  &kp F6  &kp F11 
-                &none         &kp C_MUTE   &none  &none  &trans      &to 0   &kp F1  &kp F2  &kp F3  &kp F12 
+                &none         &kp C_MUTE   &none  &none  &trans      &to 0   &kp F1  &kp F2  &kp F3  &kp F10 
             >;
         };
 
         mou {
             bindings = <
-                &none     &tog4      &kt LSHFT  &tog3     &kp PSCRN   &trans    &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  &mwh SCR_D 
-                &rls_mods &kt LCTRL  &kt LGUI   &kt LALT  &none       &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_U 
-                &to 0     &tog1      &none      &tog2     &trans      &mkp LCLK &mkp RCLK   &trans      &kp K_APP   &guitab 
+                &none     &mto4      &kt LSHFT  &mto3     &kp PSCRN   &trans    &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  &none 
+                &rls_mods &kt LCTRL  &kt LGUI   &kt LALT  &none       &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_D 
+                &to 0     &mto2      &none      &mto1     &trans      &mkp LCLK &mkp RCLK   &kp K_APP   &guitab     &mwh SCR_U
             >;
         };
 
@@ -113,7 +113,7 @@
             bindings = <
                 &trans     &kp ESC    &sk LSHFT  &kp TAB   &trans    &trans  &kp HOME  &kp UP    &kp END    &kp INS 
                 &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &trans    &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp ENTER 
-                &kp SPACE  COPYPASTE  &trans     &trans    &trans    &kp DEL &kp PG_UP &none     &kp PG_DN  &to 0 
+                &to 0      COPYPASTE  &trans     &trans    &trans    &kp DEL &kp PG_UP &none     &kp PG_DN  &kp SPACE 
             >;
         };
 

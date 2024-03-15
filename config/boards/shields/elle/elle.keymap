@@ -3,6 +3,10 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/mouse.h>
 
+/* Apple Globe key */
+#define GLOBE (ZMK_HID_USAGE(HID_USAGE_CONSUMER, 0x029D))
+// As per PR 1938
+
 &caps_word { continue-list = <MINUS UNDERSCORE BKSP DEL LEFT RIGHT DOT COMMA SEMI SLASH>; };
 &sk { release-after-ms = <3000>; quick-release; ignore-modifiers; };
 &sl { release-after-ms = <1000>; };

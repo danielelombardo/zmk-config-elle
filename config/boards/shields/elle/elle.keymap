@@ -54,8 +54,7 @@
             bindings = <&macro_tap &kp LSHFT &to 4>; };
     };
 
-    behaviors {
-        mosl: moml_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; }; 
+    behaviors {        mosl: moml_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; }; 
         mokp: moml_kp      { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
         tkp:  two_kp       { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP";       #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <150>; bindings = <&kp>, <&kp>; }; 
         
@@ -112,9 +111,9 @@
 
         nav { 
             bindings = <
-                &trans     &kp ESC    &sk LSHFT  &kp TAB   &trans    &trans  &kp HOME  &kp UP    &kp END    &kp INS 
+                &trans     &kp ESC    &sk LSHFT  &kp TAB   &trans    &trans  &kp HOME  &kp UP    &kp END    &kp GLOBE 
                 &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &trans    &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp ENTER 
-                &to 0      COPYPASTE  &trans     &trans    &trans    &kp DEL &kp PG_UP &none     &kp PG_DN  &kp SPACE 
+                &to 0      COPYPASTE  &trans     &trans    &trans    &kp DEL &kp PG_UP &kp INS   &kp PG_DN  &kp SPACE 
             >;
         };
 

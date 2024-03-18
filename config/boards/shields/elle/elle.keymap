@@ -37,7 +37,7 @@
 #define SCR_L SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 #define SCR_R SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
-&mmv { acceleration-exponent=<2>; time-to-max-speed-ms = <750>;};
+&mmv { acceleration-exponent=<1>; time-to-max-speed-ms = <700>;};
 &mwh { acceleration-exponent=<0>; time-to-max-speed-ms = <1500>;};
 
 / { 
@@ -56,7 +56,7 @@
 
     behaviors {        mosl: moml_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; }; 
         mokp: moml_kp      { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
-        tkp:  two_kp       { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP";       #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <150>; bindings = <&kp>, <&kp>; }; 
+        tkp:  two_kp       { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP";       #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <175>; bindings = <&kp>, <&kp>; }; 
         
         moto: mom_tog_l    { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOG_L";    #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tog>; }; 
         tosl: togl_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "TOGL_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&tog>, <&sl>; }; 
@@ -88,8 +88,8 @@
         num {
             bindings = <
                 ASH(GRAVE)  ASH(SLASH) ASH(EQUAL) ASH(MINUS) ASH(BSLH)     &trans  ASH(N7)  ASH(N8)  ASH(N9)  &none 
-                ASH(COMMA)  ASH(DOT)   ASH(SEMI)  ASH(SQT)   &none         &trans  ASH(N4)  ASH(N5)  ASH(N6)  &none 
-                ASH(LBKT)   ASH(RBKT)  &kp CAPS   &caps_word &trans        &to 0   ASH(N1)  ASH(N2)  ASH(N3)  ASH(N0) 
+                ASH(COMMA)  ASH(DOT)   ASH(SEMI)  ASH(SQT)   &none         &trans  ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
+                ASH(LBKT)   ASH(RBKT)  &kp CAPS   &caps_word &trans        &to 0   ASH(N1)  ASH(N2)  ASH(N3)  &none 
             >;
         };
 

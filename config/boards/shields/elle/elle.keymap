@@ -15,7 +15,7 @@
 
 #define ASH(l) &tkp LS(l) l
 #define BT(d) &bt BT_SEL d
-#define COPYPASTE &tkp LG(C) LG(V)
+#define COPYPASTE &tkp LC(C) LC(V)
 
 #define U_MOUSE_MOVE_MAX 1500 /* max speed. default is 600 */
 #undef MOVE_UP
@@ -32,8 +32,8 @@
 #undef SCROLL_DOWN
 #undef SCROLL_LEFT
 #undef SCROLL_RIGHT
-#define SCR_U SCROLL_VERT(U_MOUSE_SCROLL_MAX)
-#define SCR_D SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
+#define SCR_U SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
+#define SCR_D SCROLL_VERT(U_MOUSE_SCROLL_MAX)
 #define SCR_L SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 #define SCR_R SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
@@ -44,6 +44,8 @@
     macros {
         rls_mods: rls_mods { compatible = "zmk,behavior-macro"; label = "ZM_rls_mods"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>; };
+        tgsp:     tgsp     { compatible = "zmk,behavior-macro"; label = "ZM_tgsp";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
+            bindings = <&macro_tap &kp SPACE &tog 1>; };
         mto1:     mto1     { compatible = "zmk,behavior-macro"; label = "ZM_mto1";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_tap &kp LSHFT &to 1>; };
         mto2:     mto2     { compatible = "zmk,behavior-macro"; label = "ZM_mto2";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
@@ -52,13 +54,15 @@
             bindings = <&macro_tap &kp LSHFT &to 3>; };
         mto4:     mto4     { compatible = "zmk,behavior-macro"; label = "ZM_mto4";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_tap &kp LSHFT &to 4>; };
+        wintab:     wintab { compatible = "zmk,behavior-macro"; label = "ZM_wintab"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
+            bindings = <&macro_tap &kp LG(TAB)>; };
     };
 
     behaviors {        mosl: moml_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; }; 
-        mokp: moml_kp      { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
+        moto: mom_tog_l    { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOG_L";    #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tog>; }; 
         tkp:  two_kp       { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP";       #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <175>; bindings = <&kp>, <&kp>; }; 
         
-        moto: mom_tog_l    { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOG_L";    #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tog>; }; 
+        mokp: moml_kp      { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
         tosl: togl_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "TOGL_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&tog>, <&sl>; }; 
 
         guitab: gui_tab    { compatible = "zmk,behavior-mod-morph"; label = "GUI_TAB"; #binding-cells = <0>; 
@@ -81,7 +85,7 @@
             bindings = <
                 ASH(W)  ASH(C)  ASH(H)  ASH(M)  ASH(Q)        &key_repeat     ASH(U)  ASH(I)  ASH(O)  ASH(J) 
                 ASH(D)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)        &kp BKSP        ASH(N)  ASH(E)  ASH(A)  ASH(L) 
-                ASH(F)  ASH(G)  ASH(X)  ASH(V)  &mosl NV NU   &mokp NU SPACE  ASH(P)  ASH(Y)  ASH(K)  ASH(B) 
+                ASH(F)  ASH(G)  ASH(X)  ASH(V)  &moto NV NU   &mokp MU SPACE  ASH(P)  ASH(Y)  ASH(K)  ASH(B) 
             >;
         };
 
@@ -89,7 +93,7 @@
             bindings = <
                 ASH(GRAVE)  ASH(EQUAL) ASH(SQT)  ASH(MINUS)  ASH(BSLH)     &trans  ASH(N7)  ASH(N8)  ASH(N9)  &none 
                 ASH(COMMA)  ASH(DOT)   ASH(SEMI) ASH(SLASH)  &none         &trans  ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
-                ASH(LBKT)   ASH(RBKT)  &kp CAPS  &caps_word  &trans        &to 0   ASH(N1)  ASH(N2)  ASH(N3)  &none 
+                ASH(LBKT)   ASH(RBKT)  &kp CAPS  &caps_word  &trans        &tgsp   ASH(N1)  ASH(N2)  ASH(N3)  &none 
             >;
         };
 
@@ -97,7 +101,7 @@
             bindings = <
                 &bt BT_CLR  BT(0)  &kp C_BRI_UP  &kp C_VOL_UP &none      &trans  &kp F7  &kp F8  &kp F9  &kp F12 
                 BT(1)       BT(2)  &kp C_BRI_DN  &kp C_VOL_DN &none      &trans  &kp F4  &kp F5  &kp F6  &kp F11 
-                BT(3)       &none  &none         &kp C_MUTE   &trans     &to 0   &kp F1  &kp F2  &kp F3  &kp F10 
+                BT(3)       &none  &none         &kp C_MUTE   &trans     &trans  &kp F1  &kp F2  &kp F3  &kp F10 
             >;
         };
 
@@ -113,7 +117,7 @@
             bindings = <
                 &kp W      &kp ESC    &sk LSHFT  &kp TAB   &kp Q     &trans  &kp HOME  &kp UP    &kp END    &none 
                 &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &kp Z     &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp ENTER 
-                &guitab    &kp C      &kp X      &kp V     &trans    &kp DEL &kp PG_UP &kp INS   &kp PG_DN  &kp SPACE 
+                &wintab    &kp C      &kp X      &kp V     &trans    &kp DEL &kp PG_UP &kp INS   &kp PG_DN  &kp SPACE 
             >;
         };
 

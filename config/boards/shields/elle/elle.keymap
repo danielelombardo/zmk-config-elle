@@ -87,9 +87,9 @@
 
         num {
             bindings = <
-                ASH(GRAVE)  ASH(SLASH) ASH(EQUAL) ASH(MINUS) ASH(BSLH)     &trans  ASH(N7)  ASH(N8)  ASH(N9)  &none 
-                ASH(COMMA)  ASH(DOT)   ASH(SEMI)  ASH(SQT)   &none         &trans  ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
-                ASH(LBKT)   ASH(RBKT)  &kp CAPS   &caps_word &trans        &to 0   ASH(N1)  ASH(N2)  ASH(N3)  &none 
+                ASH(GRAVE)  ASH(EQUAL) ASH(SQT)  ASH(MINUS)  ASH(BSLH)     &trans  ASH(N7)  ASH(N8)  ASH(N9)  &none 
+                ASH(COMMA)  ASH(DOT)   ASH(SEMI) ASH(SLASH)  &none         &trans  ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
+                ASH(LBKT)   ASH(RBKT)  &kp CAPS  &caps_word  &trans        &to 0   ASH(N1)  ASH(N2)  ASH(N3)  &none 
             >;
         };
 

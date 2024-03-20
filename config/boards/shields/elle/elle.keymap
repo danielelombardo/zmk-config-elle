@@ -115,7 +115,7 @@
 
         nav { 
             bindings = <
-                &kp W      &kp ESC    &sk LSHFT  &kp TAB   &kp Q     &trans  &kp HOME  &kp UP    &kp END    &none 
+                &kp W      &kp ESC    &sk LSHFT  &kp TAB   &kp Q     &trans  &kp HOME  &kp UP    &kp END    &sk RALT 
                 &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &kp Z     &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp ENTER 
                 &wintab    &kp C      &kp X      &kp V     &trans    &kp DEL &kp PG_UP &kp INS   &kp PG_DN  &kp SPACE 
             >;

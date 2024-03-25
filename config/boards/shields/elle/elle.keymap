@@ -32,8 +32,8 @@
 #undef SCROLL_DOWN
 #undef SCROLL_LEFT
 #undef SCROLL_RIGHT
-#define SCR_U SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
-#define SCR_D SCROLL_VERT(U_MOUSE_SCROLL_MAX)
+#define SCR_U SCROLL_VERT(U_MOUSE_SCROLL_MAX)
+#define SCR_D SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
 #define SCR_L SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 #define SCR_R SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
@@ -93,7 +93,7 @@
             bindings = <
                 ASH(GRAVE)  ASH(EQUAL) ASH(SQT)  ASH(MINUS)  ASH(BSLH)     &trans  ASH(N7)  ASH(N8)  ASH(N9)  &none 
                 ASH(COMMA)  ASH(DOT)   ASH(SEMI) ASH(SLASH)  &none         &trans  ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
-                ASH(LBKT)   ASH(RBKT)  &kp CAPS  &caps_word  &trans        &tgsp   ASH(N1)  ASH(N2)  ASH(N3)  &none 
+                ASH(LBKT)   ASH(RBKT)  &kp CAPS  &caps_word  &trans        &tgsp   ASH(N1)  ASH(N2)  ASH(N3)  &to 0 
             >;
         };
 
@@ -107,9 +107,9 @@
 
         mou {
             bindings = <
-                &kp PSCRN  &kp ESC    &kt LSHFT  &kp TAB   &none      &trans    &mwh SCR_R  &mmv MOV_U  &mwh SCR_L  COPYPASTE 
-                &rls_mods  &kt LCTRL  &kt LGUI   &kt LALT  &none      &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &mwh SCR_D 
-                &to 0      &none      &none      &none     &trans     &mkp LCLK &mkp RCLK   &none       &kp K_APP   &mwh SCR_U 
+                &kp PSCRN  &kp ESC    &kt LSHFT  &kp TAB   &none      &trans    &mwh SCR_U  &mmv MOV_U  &mwh SCR_D  COPYPASTE 
+                &rls_mods  &kt LCTRL  &kt LGUI   &kt LALT  &none      &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &kp K_APP 
+                &to 0      &none      &none      &none     &trans     &mkp LCLK &mwh SCR_L  &mkp RCLK   &mwh SCR_R  &to 0 
             >;
         };
 
@@ -117,7 +117,7 @@
             bindings = <
                 &kp W      &kp ESC    &sk LSHFT  &kp TAB   &kp Q      &trans  &kp HOME  &kp UP    &kp END    COPYPASTE 
                 &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &kp Z      &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp ENTER 
-                &wintab    &kp C      &kp X      &kp V     &trans     &kp DEL &kp PG_UP &kp INS   &kp PG_DN  &kp SPACE 
+                &wintab    &kp C      &kp X      &kp V     &to 0      &kp DEL &kp PG_UP &kp INS   &kp PG_DN  &kp SPACE 
             >;
         };
 

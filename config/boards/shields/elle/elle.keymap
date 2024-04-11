@@ -56,6 +56,8 @@
             bindings = <&macro_tap &kp LSHFT &to 4>; };
         wintab:     wintab { compatible = "zmk,behavior-macro"; label = "ZM_wintab"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_tap &kp LG(TAB)>; };
+        delwrd:     delwrd { compatible = "zmk,behavior-macro"; label = "ZM_delwrd"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
+            bindings = <&macro_tap &kp LC(BKSP)>; };
     };
 
     behaviors {
@@ -73,10 +75,10 @@
 
     combos {
         compatible = "zmk,combos";
-        combo_nav { timeout-ms = <50>; key-positions = <6 7>; bindings = <&to NV>; };
-        combo_fun { timeout-ms = <50>; key-positions = <6 8>; bindings = <&to FU>; };
-        combo_mou { timeout-ms = <50>; key-positions = <16 17>; bindings = <&to MU>; };
-        combo_0   { timeout-ms = <50>; key-positions = <16 18>; bindings = <&to 0>; };
+        combo_mou { timeout-ms = <50>; key-positions = <6 16>; bindings = <&to MU>; };
+        combo_nav { timeout-ms = <50>; key-positions = <7 17>; bindings = <&to NV>; };
+        combo_0   { timeout-ms = <50>; key-positions = <8 18>; bindings = <&to 0>; };
+        combo_fun { timeout-ms = <50>; key-positions = <5 15>; bindings = <&to FU>; };
     };
  
     keymap {
@@ -92,7 +94,7 @@
         num {
             bindings = <
                 ASH(GRAVE)  ASH(EQUAL) ASH(SQT)  ASH(MINUS)  ASH(BSLH)     &trans  ASH(N7)  ASH(N8)  ASH(N9)  &none 
-                ASH(COMMA)  ASH(DOT)   ASH(SEMI) ASH(SLASH)  &none         &trans  ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
+                ASH(COMMA)  ASH(DOT)   ASH(SEMI) ASH(SLASH)  &delwrd       &trans  ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
                 ASH(LBKT)   ASH(RBKT)  &kp CAPS  &caps_word  &trans        &tgsp   ASH(N1)  ASH(N2)  ASH(N3)  &to 0 
             >;
         };

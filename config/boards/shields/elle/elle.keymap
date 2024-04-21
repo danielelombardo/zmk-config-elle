@@ -16,8 +16,8 @@
 
 #define ASH(l) &tkp LS(l) l
 #define BT(d) &bt BT_SEL d
-#define PASTECUT &tkp LC(X) LC(V)
-#define COPYUNDO &tkp LC(Z) LC(C)
+#define VX &tkp LC(X) LC(V)
+#define CZ &tkp LC(Z) LC(C)
 #define GUITAB &kp LG(TAB)
 #define DELWRD &kp LC(BKSP)
 
@@ -83,16 +83,16 @@
 
         nav { 
             bindings = <
-                &kp DEL    &kp ESC     &kpt LSHFT  &kp TAB    &none     &trans  &kp HOME  &kp UP    &kp END    COPYUNDO
-                &rls_mods  &kpt LCTRL  &kpt LGUI   &kpt LALT  &none     &trans  &kp LEFT  &kp DOWN  &kp RIGHT  PASTECUT 
+                &kp DEL    &kp ESC     &kpt LSHFT  &kp TAB    &none     &trans  &kp HOME  &kp UP    &kp END    CZ
+                &rls_mods  &kpt LCTRL  &kpt LGUI   &kpt LALT  &none     &trans  &kp LEFT  &kp DOWN  &kp RIGHT  VX 
                 &to 0      &none       &none       &none      &trans    &trans  &kp PG_UP &kp INS   &kp PG_DN  &tog NV 
             >;
         };
 
         mou {
             bindings = <
-                &kp DEL    &kp ESC     &kpt LSHFT  &kp TAB    &none      &trans  &mwh SCR_U  &mmv MOV_U  &mwh SCR_D  COPYUNDO 
-                &rls_mods  &kpt LCTRL  &kpt LGUI   &kpt LALT  &none      &trans  &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  PASTECUT 
+                &kp DEL    &kp ESC     &kpt LSHFT  &kp TAB    &none      &trans  &mwh SCR_U  &mmv MOV_U  &mwh SCR_D  CZ 
+                &rls_mods  &kpt LCTRL  &kpt LGUI   &kpt LALT  &none      &trans  &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  VX 
                 &to 0      &none       &none       &none      &trans     &trans  &mkp LCLK   &kp K_APP   &mkp RCLK   &tog MU 
             >;
         };

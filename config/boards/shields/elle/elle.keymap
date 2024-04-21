@@ -8,14 +8,19 @@
 &sl { release-after-ms = <3000>; };
 
 #define AZ  0
-#define NU  1
-#define FU  2
-#define MU  3
-#define NV  4
+#define NV  1
+#define MU  2
+#define NU  3
+#define SY  4
+#define FU  5
 
 #define ASH(l) &tkp LS(l) l
 #define BT(d) &bt BT_SEL d
-#define COPYPASTE &tkp LC(C) LC(V)
+#define PASTECUT &tkp LC(X) LC(V)
+#define COPYUNDO &tkp LC(Z) LC(C)
+#define GUITAB &kp LG(TAB)
+#define DELWRD &kp LC(BKSP)
+
 
 #define U_MOUSE_MOVE_MAX 1500 /* max speed. default is 600 */
 #undef MOVE_UP
@@ -30,47 +35,32 @@
 #define U_MOUSE_SCROLL_MAX 20 /* <--- New max speed setting (default: 10) */
 #undef SCROLL_UP
 #undef SCROLL_DOWN
-#undef SCROLL_LEFT
-#undef SCROLL_RIGHT
 #define SCR_U SCROLL_VERT(U_MOUSE_SCROLL_MAX)
 #define SCR_D SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
-#define SCR_L SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
-#define SCR_R SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
-&mmv { acceleration-exponent=<1>; time-to-max-speed-ms = <700>;};
+&mmv { acceleration-exponent=<1>; time-to-max-speed-ms = <800>;};
 &mwh { acceleration-exponent=<0>; time-to-max-speed-ms = <1500>;};
 
 / { 
     macros {
         rls_mods: rls_mods { compatible = "zmk,behavior-macro"; label = "ZM_rls_mods"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>; };
-        tgsp:     tgsp     { compatible = "zmk,behavior-macro"; label = "ZM_tgsp";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &kp SPACE &tog 1>; };
-        mto1:     mto1     { compatible = "zmk,behavior-macro"; label = "ZM_mto1";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &kp LSHFT &to 1>; };
-        mto2:     mto2     { compatible = "zmk,behavior-macro"; label = "ZM_mto2";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &kp LSHFT &to 2>; };
-        mto3:     mto3     { compatible = "zmk,behavior-macro"; label = "ZM_mto3";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &kp LSHFT &to 3>; };
-        mto4:     mto4     { compatible = "zmk,behavior-macro"; label = "ZM_mto4";   #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &kp LSHFT &to 4>; };
-        wintab:     wintab { compatible = "zmk,behavior-macro"; label = "ZM_wintab"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &kp LG(TAB)>; };
-        delwrd:     delwrd { compatible = "zmk,behavior-macro"; label = "ZM_delwrd"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_tap &kp LC(BKSP)>; };
+        rst_all:  rst_all  { compatible = "zmk,behavior-macro"; label = "ZM_rst_all"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
+            bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>, <&macro_tap &to 0>; };
     };
 
     behaviors {
-        mokp: moml_kp      { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
-        tkp:  two_kp       { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP";       #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <175>; bindings = <&kp>, <&kp>; }; 
+        mk:  moml_kp      { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
+        mg:  mom_tog_l    { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOG_L";    #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tog>; }; 
+        tkp: two_kp       { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP";       #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <175>; bindings = <&kp>, <&kp>; }; 
+        kpt: kp_kt        { compatible = "zmk,behavior-hold-tap"; label = "KP_KT";        #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <175>; bindings = <&kp>, <&kt>; }; 
         
-        slkp: sl_kp        { compatible = "zmk,behavior-hold-tap"; label = "SL_KP";        #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&sl>, <&kp>; }; 
-        moto: mom_tog_l    { compatible = "zmk,behavior-hold-tap"; label = "MOM_TOG_L";    #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&tog>; }; 
-        mosl: moml_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; }; 
-        tosl: togl_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "TOGL_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&tog>, <&sl>; }; 
+        slk: sl_kp        { compatible = "zmk,behavior-hold-tap"; label = "SL_KP";        #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&sl>, <&kp>; }; 
+        msl: moml_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "MOML_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; }; 
+        tsl: togl_1shot_l { compatible = "zmk,behavior-hold-tap"; label = "TOGL_1SHOT_L"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&tog>, <&sl>; }; 
 
-        guitab: gui_tab    { compatible = "zmk,behavior-mod-morph"; label = "GUI_TAB"; #binding-cells = <0>; 
-            bindings = <&kt LGUI>, <&kp TAB>; mods = <(MOD_LGUI)>; };
+        appswt: appswitch { compatible = "zmk,behavior-mod-morph"; label = "APPSWITCH"; #binding-cells = <0>; 
+            bindings = <&kt LALT>, <&kp TAB>; mods = <(MOD_LALT)>; };
     };
 
     combos {
@@ -85,17 +75,41 @@
         compatible = "zmk,keymap";
         abc {
             bindings = <
-                ASH(W)  ASH(C)  ASH(H)  ASH(M)  ASH(Q)        &key_repeat     ASH(U)  ASH(I)  ASH(O)  ASH(J) 
-                ASH(D)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)        &kp BKSP        ASH(N)  ASH(E)  ASH(A)  ASH(L) 
-                ASH(F)  ASH(G)  ASH(X)  ASH(V)  &moto NV NU   &mokp NU SPACE  ASH(P)  ASH(Y)  ASH(K)  ASH(B) 
+                ASH(W)  ASH(C)  ASH(H)  ASH(M)  ASH(Q)          &rst_all      ASH(U)  ASH(I)  ASH(O)  ASH(J) 
+                ASH(D)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)          &key_repeat   ASH(N)  ASH(E)  ASH(A)  ASH(L) 
+                ASH(F)  ASH(G)  ASH(X)  ASH(V)  &mk NU BKSP     &mk SY SPACE  ASH(P)  ASH(Y)  ASH(B)  ASH(K) 
+            >;
+        };
+
+        nav { 
+            bindings = <
+                &kp DEL    &kp ESC     &kpt LSHFT  &kp TAB    &none     &trans  &kp HOME  &kp UP    &kp END    COPYUNDO
+                &rls_mods  &kpt LCTRL  &kpt LGUI   &kpt LALT  &none     &trans  &kp LEFT  &kp DOWN  &kp RIGHT  PASTECUT 
+                &to 0      &none       &none       &none      &trans    &trans  &kp PG_UP &kp INS   &kp PG_DN  &tog NV 
+            >;
+        };
+
+        mou {
+            bindings = <
+                &kp DEL    &kp ESC     &kpt LSHFT  &kp TAB    &none      &trans  &mwh SCR_U  &mmv MOV_U  &mwh SCR_D  COPYUNDO 
+                &rls_mods  &kpt LCTRL  &kpt LGUI   &kpt LALT  &none      &trans  &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  PASTECUT 
+                &to 0      &none       &none       &none      &trans     &trans  &mkp LCLK   &kp K_APP   &mkp RCLK   &tog MU 
             >;
         };
 
         num {
             bindings = <
-                ASH(GRAVE)  ASH(EQUAL) ASH(SQT)  ASH(MINUS)  ASH(BSLH)     &trans  ASH(N7)  ASH(N8)  ASH(N9)  &none 
-                ASH(COMMA)  ASH(DOT)   ASH(SEMI) ASH(SLASH)  &delwrd       &trans  ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
-                ASH(LBKT)   ASH(RBKT)  &kp CAPS  &caps_word  &trans        &tgsp   ASH(N1)  ASH(N2)  ASH(N3)  &to 0 
+                &kp DEL    &kp ESC    &sk LSHFT  &kp TAB   &none      &trans      ASH(N7)  ASH(N8)  ASH(N9)  &none 
+                &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &none      &trans      ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
+                GUITAB     &to NV     &none      &to MU    &none      &mk FU ENT  ASH(N1)  ASH(N2)  ASH(N3)  &none 
+            >;
+        };
+ 
+        sym {
+            bindings = <
+                ASH(GRAVE)  ASH(MINUS) ASH(SQT)  ASH(EQUAL)  &kp PSCRN        &trans  &kp TAB   &sk LSHFT  &kp ESC    &kp DEL 
+                ASH(COMMA)  ASH(DOT)   ASH(SEMI) ASH(SLASH)  ASH(BSLH)        &trans  &sk LALT  &sk LGUI   &sk LCTRL  &kp ENTER 
+                ASH(LBKT)   ASH(RBKT)  &kp CAPS  &caps_word  &mk FU DELWRD    &none   &to MU    &none      &to NV     GUITAB 
             >;
         };
 
@@ -103,25 +117,8 @@
             bindings = <
                 &bt BT_CLR  BT(0)  &kp C_BRI_UP  &kp C_VOL_UP &none      &trans  &kp F7  &kp F8  &kp F9  &kp F12 
                 BT(1)       BT(2)  &kp C_BRI_DN  &kp C_VOL_DN &none      &trans  &kp F4  &kp F5  &kp F6  &kp F11 
-                BT(3)       &none  &none         &kp C_MUTE   &trans     &to 0   &kp F1  &kp F2  &kp F3  &kp F10 
+                BT(3)       &none  &none         &kp C_MUTE   &to 0      &to 0   &kp F1  &kp F2  &kp F3  &kp F10 
             >;
         };
-
-        mou {
-            bindings = <
-                &kp PSCRN  &kp ESC    &kt LSHFT  &kp TAB   &none      &trans    &mwh SCR_U  &mmv MOV_U  &mwh SCR_D  COPYPASTE 
-                &rls_mods  &kt LCTRL  &kt LGUI   &kt LALT  &none      &trans    &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  &kp K_APP 
-                &to 0      &none      &none      &none     &trans     &mkp LCLK &mwh SCR_L  &mkp RCLK   &mwh SCR_R  &to 0 
-            >;
-        };
-
-        nav { 
-            bindings = <
-                &kp W      &kp ESC    &sk LSHFT  &kp TAB   &kp Q      &trans  &kp HOME  &kp UP    &kp END    COPYPASTE 
-                &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &kp Z      &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp ENTER 
-                &wintab    &kp C      &kp X      &kp V     &to 0      &kp DEL &kp PG_UP &kp INS   &kp PG_DN  &kp SPACE 
-            >;
-        };
-
     };
 };

@@ -99,9 +99,9 @@
 
         num {
             bindings = <
-                &kp DEL    &kp ESC    &sk LSHFT  &kp TAB   &none      &trans      ASH(N7)  ASH(N8)  ASH(N9)  &none 
-                &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &none      &trans      ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
-                GUITAB     &to NV     &none      &to MU    &none      &mk FU ENT  ASH(N1)  ASH(N2)  ASH(N3)  &none 
+                &kp DEL    &kp ESC    &sk LSHFT  &kp TAB   &none      &trans        ASH(N7)  ASH(N8)  ASH(N9)  &none 
+                &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &none      &trans        ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
+                GUITAB     &to NV     &none      &to MU    &none      &mk FU ENTER  ASH(N1)  ASH(N2)  ASH(N3)  &none 
             >;
         };
  

@@ -15,6 +15,7 @@
 #define FU  5
 
 #define ASH(l) &tkp LS(l) l
+#define KPT(l) &kpt LS(l) l
 #define BT(d) &bt BT_SEL d
 #define VX &tkp LC(X) LC(V)
 #define CZ &tkp LC(Z) LC(C)
@@ -83,16 +84,16 @@
 
         nav { 
             bindings = <
-                &kp DEL    &kp ESC     &kpt LSHFT  &kp TAB    &none     &trans  &kp HOME  &kp UP    &kp END    &none 
-                &rls_mods  &kpt LCTRL  &kpt LGUI   &kpt LALT  &none     &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &none 
+                &kp DEL    &kp ESC     KPT(LSHFT)  &kp TAB    &none     &trans  &kp HOME  &kp UP    &kp END    CZ
+                &rls_mods  KPT(LCTRL)  KPT(LGUI)   KPT(LALT)  &none     &trans  &kp LEFT  &kp DOWN  &kp RIGHT  VX 
                 &to 0      &none       &none       &none      &trans    &trans  &kp PG_UP &kp INS   &kp PG_DN  &tog NV 
             >;
         };
 
         mou {
             bindings = <
-                &kp DEL    &kp ESC     &kpt LSHFT  &kp TAB    &none      &trans  &mwh SCR_U  &mmv MOV_U  &mwh SCR_D  CZ 
-                &rls_mods  &kpt LCTRL  &kpt LGUI   &kpt LALT  &none      &trans  &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  VX 
+                &kp DEL    &kp ESC     KPT(LSHFT)  &kp TAB    &none      &trans  &mwh SCR_U  &mmv MOV_U  &mwh SCR_D  CZ 
+                &rls_mods  KPT(LCTRL)  KPT(LGUI)   KPT(LALT)  &none      &trans  &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  VX 
                 &to 0      &none       &none       &none      &trans     &trans  &mkp LCLK   &kp K_APP   &mkp RCLK   &tog MU 
             >;
         };

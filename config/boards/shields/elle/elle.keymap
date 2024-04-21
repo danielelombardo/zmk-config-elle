@@ -83,8 +83,8 @@
 
         nav { 
             bindings = <
-                &kp DEL    &kp ESC     &kpt LSHFT  &kp TAB    &none     &trans  &kp HOME  &kp UP    &kp END    CZ
-                &rls_mods  &kpt LCTRL  &kpt LGUI   &kpt LALT  &none     &trans  &kp LEFT  &kp DOWN  &kp RIGHT  VX 
+                &kp DEL    &kp ESC     &kpt LSHFT  &kp TAB    &none     &trans  &kp HOME  &kp UP    &kp END    &none 
+                &rls_mods  &kpt LCTRL  &kpt LGUI   &kpt LALT  &none     &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &none 
                 &to 0      &none       &none       &none      &trans    &trans  &kp PG_UP &kp INS   &kp PG_DN  &tog NV 
             >;
         };

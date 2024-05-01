@@ -15,7 +15,7 @@
 #define FU  5
 
 #define ASH(l) &tkp LS(l) l
-#define KPT(l) &kpt LS(l) l
+#define KPT(l) &kpt l l
 #define BT(d) &bt BT_SEL d
 #define VX &tkp LC(X) LC(V)
 #define CZ &tkp LC(Z) LC(C)
@@ -84,7 +84,7 @@
 
         nav { 
             bindings = <
-                &kp DEL    &kp ESC     KPT(LSHFT)  &kp TAB    &none     &trans  &kp HOME  &kp UP    &kp END    CZ
+                &kp DEL    &kp ESC     KPT(LSHFT)  &kp TAB    &none     &trans  &kp HOME  &kp UP    &kp END    CZ 
                 &rls_mods  KPT(LCTRL)  KPT(LGUI)   KPT(LALT)  &none     &trans  &kp LEFT  &kp DOWN  &kp RIGHT  VX 
                 &to 0      &none       &none       &none      &trans    &trans  &kp PG_UP &kp INS   &kp PG_DN  &tog NV 
             >;
@@ -100,9 +100,9 @@
 
         num {
             bindings = <
-                &kp DEL    &kp ESC    &sk LSHFT  &kp TAB   &none      &trans        ASH(N7)  ASH(N8)  ASH(N9)  &none 
-                &rls_mods  &sk LCTRL  &sk LGUI   &sk LALT  &none      &trans        ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
-                GUITAB     &to NV     &none      &to MU    &none      &mk FU ENTER  ASH(N1)  ASH(N2)  ASH(N3)  &none 
+                &kp DEL  &kp ESC    &sk LSHFT  &kp TAB   &none      &trans        ASH(N7)  ASH(N8)  ASH(N9)  &none 
+                &mo NV   &sk LCTRL  &sk LGUI   &sk LALT  &none      &trans        ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
+                GUITAB   &to NV     &none      &to MU    &none      &mk FU ENTER  ASH(N1)  ASH(N2)  ASH(N3)  &kp BKSP 
             >;
         };
  

@@ -76,9 +76,9 @@
         compatible = "zmk,keymap";
         abc {
             bindings = <
-                ASH(W)  ASH(C)  ASH(H)  ASH(M)  ASH(Q)          &rst_all      ASH(U)  ASH(I)  ASH(O)  ASH(J) 
-                ASH(D)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)          &key_repeat   ASH(N)  ASH(E)  ASH(A)  ASH(L) 
-                ASH(F)  ASH(G)  ASH(X)  ASH(V)  &mk NU BKSP     &mk SY SPACE  ASH(P)  ASH(Y)  ASH(B)  ASH(K) 
+                ASH(W)  ASH(C)  ASH(F)  ASH(V)  ASH(Q)          &rst_all      ASH(B)  ASH(U)  ASH(L)  ASH(P) 
+                ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)          &key_repeat   ASH(N)  ASH(E)  ASH(I)  ASH(O) 
+                ASH(Y)  ASH(G)  ASH(X)  ASH(D)  &mk NU BKSP     &mk SY SPACE  ASH(H)  ASH(M)  ASH(J)  ASH(K) 
             >;
         };
 

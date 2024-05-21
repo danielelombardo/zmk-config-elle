@@ -1,21 +1,23 @@
-config ZMK_BLE
-	default y
 
-
-if SHIELD_ELLE_RIGHT
-
-config ZMK_SPLIT_BLE_ROLE_CENTRAL
-	default y
+if SHIELD_ELLE_DONGLE
 
 config ZMK_KEYBOARD_NAME
-	default "_elle"
+	default "ELLE Dongle"
+	
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
+	
+config ZMK_USB
+	default y
 
-endif # SHIELD_ELLE_LEFT
+endif
 
-
-if SHIELD_ELLE_LEFT || SHIELD_ELLE_RIGHT
+if SHIELD_ELLE_LEFT || SHIELD_ELLE_RIGHT || SHIELD_ELLE_DONGLE 
 
 config ZMK_SPLIT
 	default y
 
-endif # SHIELD_ELLE_LEFT || SHIELD_ELLE_RIGHT
+config ZMK_BLE
+	default y
+	
+endif

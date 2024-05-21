@@ -23,9 +23,6 @@
 #define DELWRD LC(BKSP)
 
 
-#define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
-#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
-
 &mmv {
   acceleration-exponent = <1>;      // 1
   time-to-max-speed-ms = <800>;    // 40
@@ -38,12 +35,15 @@
   delay-ms = <0>;                   // 10
 };
 
-#define MS_U &mmv MOVE_UP
-#define MS_D &mmv MOVE_DOWN
-#define MS_L &mmv MOVE_LEFT
-#define MS_R &mmv MOVE_RIGHT
-#define WH_U &msc SCRL_UP 
-#define WH_D &msc SCRL_DOWN
+#define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
+
+#define MS_U &mmv MOVE_VERT(-ZMK_MOUSE_DEFAULT_MOVE_VAL)
+#define MS_D &mmv MOVE_VERT(ZMK_MOUSE_DEFAULT_MOVE_VAL)
+#define MS_L &mmv MOVE_HOR(-ZMK_MOUSE_DEFAULT_MOVE_VAL)
+#define MS_R &mmv MOVE_HOR(ZMK_MOUSE_DEFAULT_MOVE_VAL)
+#define WH_U &msc SCROLL_VERT(ZMK_MOUSE_DEFAULT_SCRL_VAL) 
+#define WH_D &msc SCROLL_VERT(-ZMK_MOUSE_DEFAULT_SCRL_VAL)
 
 #define MC_L &mkp LCLK 
 #define MC_R &mkp RCLK

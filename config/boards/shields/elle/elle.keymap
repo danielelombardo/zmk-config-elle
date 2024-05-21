@@ -1,7 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/mouse.h>
+#include "zmk-helpers/helper.h"
 
 &caps_word { continue-list = <MINUS UNDERSCORE BKSP DEL LEFT RIGHT DOT COMMA SEMI SLASH>; };
 &sk { release-after-ms = <3000>; quick-release; ignore-modifiers; };
@@ -23,30 +23,33 @@
 #define DELWRD LC(BKSP)
 
 
+#define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
+
+#include <dt-bindings/zmk/mouse.h>
+#include <behaviors/mouse_keys.dtsi>
+
 &mmv {
   acceleration-exponent = <1>;      // 1
   time-to-max-speed-ms = <800>;    // 40
+  delay-ms = <0>;                   // 0
 };
 
 &msc {
   acceleration-exponent = <0>;      // 0
   time-to-max-speed-ms = <1500>;    // 500
+  delay-ms = <0>;                   // 10
 };
 
-/*
-#define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
-#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
-*/
+#define MMV_U &mmv MOVE_UP
+#define MMV_D &mmv MOVE_DOWN
+#define MMV_L &mmv MOVE_LEFT
+#define MMV_R &mmv MOVE_RIGHT
+#define MWH_U &msc SCRL_UP 
+#define MWH_D &msc SCRL_DOWN
 
-#define MS_U &mmv MOVE_UP
-#define MS_D &mmv MOVE_DOWN
-#define MS_L &mmv MOVE_LEFT
-#define MS_R &mmv MOVE_RIGHT
-#define WH_U &mwh SCROLL_UP 
-#define WH_D &mwh SCROLL_DOWN
-
-#define MC_L &mkp LCLK 
-#define MC_R &mkp RCLK
+#define MCK_L &mkp LCLK 
+#define MCK_R &mkp RCLK
 
 / { 
     macros {
@@ -98,9 +101,9 @@
 
         mou {
             bindings = <
-                &kp DEL    &kp ESC     KPT(LSHFT)  &kp TAB    &none      &trans  WH_D  MS_U       WH_U  CZ 
-                &rls_mods  KPT(LCTRL)  KPT(LGUI)   KPT(LALT)  &none      &trans  MS_L  MS_D       MS_R  VX 
-                &to 0      &none       &none       &none      &trans     &trans  MC_L  &kp K_APP  MC_R  &tog MU 
+                &kp DEL    &kp ESC     KPT(LSHFT)  &kp TAB    &none      &trans  MWH_D  MMV_U      MWH_U  CZ 
+                &rls_mods  KPT(LCTRL)  KPT(LGUI)   KPT(LALT)  &none      &trans  MMV_L  MMV_D      MMV_R  VX 
+                &to 0      &none       &none       &none      &trans     &trans  MCK_L  &kp K_APP  MCK_R  &tog MU 
             >;
         };
 

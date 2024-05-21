@@ -2,6 +2,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/mouse.h>
+#include <behaviors/mouse_keys.dtsi>
 
 &caps_word { continue-list = <MINUS UNDERSCORE BKSP DEL LEFT RIGHT DOT COMMA SEMI SLASH>; };
 &sk { release-after-ms = <3000>; quick-release; ignore-modifiers; };
@@ -23,24 +24,30 @@
 #define DELWRD LC(BKSP)
 
 
-#define U_MOUSE_MOVE_MAX 1500 /* max speed. default is 600 */
-#undef MOVE_UP
-#undef MOVE_DOWN
-#undef MOVE_LEFT
-#undef MOVE_RIGHT
-#define MOV_U MOVE_VERT(-U_MOUSE_MOVE_MAX)
-#define MOV_D MOVE_VERT(U_MOUSE_MOVE_MAX)
-#define MOV_L MOVE_HOR(-U_MOUSE_MOVE_MAX)
-#define MOV_R MOVE_HOR(U_MOUSE_MOVE_MAX)
+#define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
 
-#define U_MOUSE_SCROLL_MAX 20 /* <--- New max speed setting (default: 10) */
-#undef SCROLL_UP
-#undef SCROLL_DOWN
-#define SCR_U SCROLL_VERT(U_MOUSE_SCROLL_MAX)
-#define SCR_D SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
+&mmv {
+  acceleration-exponent = <1>;      // 1
+  time-to-max-speed-ms = <800>;    // 40
+  delay-ms = <0>;                   // 0
+};
 
-&mmv { acceleration-exponent=<1>; time-to-max-speed-ms = <800>;};
-&mwh { acceleration-exponent=<0>; time-to-max-speed-ms = <1500>;};
+&msc {
+  acceleration-exponent = <0>;      // 0
+  time-to-max-speed-ms = <1500>;    // 500
+  delay-ms = <0>;                   // 10
+};
+
+#define MS_U &mmv MOVE_UP
+#define MS_D &mmv MOVE_DOWN
+#define MS_L &mmv MOVE_LEFT
+#define MS_R &mmv MOVE_RIGHT
+#define WH_U &msc SCRL_UP 
+#define WH_D &msc SCRL_DOWN
+
+#define MC_L &mkp LCLK 
+#define MC_R &mkp RCLK
 
 / { 
     macros {
@@ -92,9 +99,9 @@
 
         mou {
             bindings = <
-                &kp DEL    &kp ESC     KPT(LSHFT)  &kp TAB    &none      &trans  &mwh SCR_U  &mmv MOV_U  &mwh SCR_D  CZ 
-                &rls_mods  KPT(LCTRL)  KPT(LGUI)   KPT(LALT)  &none      &trans  &mmv MOV_L  &mmv MOV_D  &mmv MOV_R  VX 
-                &to 0      &none       &none       &none      &trans     &trans  &mkp LCLK   &kp K_APP   &mkp RCLK   &tog MU 
+                &kp DEL    &kp ESC     KPT(LSHFT)  &kp TAB    &none      &trans  WH_D  MS_U       WH_U  CZ 
+                &rls_mods  KPT(LCTRL)  KPT(LGUI)   KPT(LALT)  &none      &trans  MS_L  MS_D       MS_R  VX 
+                &to 0      &none       &none       &none      &trans     &trans  MC_L  &kp K_APP  MC_R  &tog MU 
             >;
         };
 
@@ -102,7 +109,7 @@
             bindings = <
                 &kp DEL  &kp ESC    &sk LSHFT  &kp TAB   &none      &trans        ASH(N7)  ASH(N8)  ASH(N9)  &none 
                 &mo NV   &sk LCTRL  &sk LGUI   &sk LALT  &none      &trans        ASH(N4)  ASH(N5)  ASH(N6)  ASH(N0) 
-                GUITAB   &to NV     &none      &to MU    &none      &mk FU ENTER  ASH(N1)  ASH(N2)  ASH(N3)  &kp BKSP 
+                &to MU   &to NV     &none      &none     &none      &mk FU ENTER  ASH(N1)  ASH(N2)  ASH(N3)  &kp BKSP 
             >;
         };
  
@@ -110,7 +117,7 @@
             bindings = <
                 ASH(GRAVE)  ASH(MINUS) ASH(SQT)  ASH(EQUAL)  &kp PSCRN        &trans  &kp TAB   &sk LSHFT  &kp ESC    &kp DEL 
                 ASH(COMMA)  ASH(DOT)   ASH(SEMI) ASH(SLASH)  ASH(BSLH)        &trans  &sk LALT  &sk LGUI   &sk LCTRL  &kp ENTER 
-                ASH(LBKT)   ASH(RBKT)  &kp CAPS  &caps_word  &mk FU DELWRD    &none   &to MU    &none      &to NV     GUITAB 
+                ASH(LBKT)   ASH(RBKT)  &kp CAPS  &caps_word  &mk FU DELWRD    &none   &none     &none      &to NV     &to MU 
             >;
         };
 

@@ -100,7 +100,7 @@
 
         mou {
             bindings = <
-                &kp DEL    &kp ESC     KPT(LSHFT)  &kp TAB    &none      &trans  MWH_D  MMV_U      MWH_U  CZ 
+                &kp DEL    &kp ESC     KPT(LSHFT)  &kp TAB    &none      &trans  MWH_U  MMV_U      MWH_D  CZ 
                 &rls_mods  KPT(LCTRL)  KPT(LGUI)   KPT(LALT)  &none      &trans  MMV_L  MMV_D      MMV_R  VX 
                 &to 0      &none       &none       &none      &trans     &trans  MCK_L  &kp K_APP  MCK_R  &tog MU 
             >;
